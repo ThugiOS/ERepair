@@ -9,21 +9,25 @@
 /* Begin PBXBuildFile section */
 		27914B6729CDE28300F78582 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B6629CDE28300F78582 /* AppDelegate.swift */; };
 		27914B6929CDE28300F78582 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B6829CDE28300F78582 /* SceneDelegate.swift */; };
-		27914B6B29CDE28300F78582 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B6A29CDE28300F78582 /* ViewController.swift */; };
-		27914B6E29CDE28300F78582 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27914B6C29CDE28300F78582 /* Main.storyboard */; };
 		27914B7029CDE28500F78582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27914B6F29CDE28500F78582 /* Assets.xcassets */; };
 		27914B7329CDE28500F78582 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 27914B7129CDE28500F78582 /* LaunchScreen.storyboard */; };
+		27914B7D29CDF70B00F78582 /* ForgotPasswordController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B7C29CDF70B00F78582 /* ForgotPasswordController.swift */; };
+		27914B7F29CDF75A00F78582 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B7E29CDF75A00F78582 /* LoginController.swift */; };
+		27914B8129CDF7BD00F78582 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B8029CDF7BD00F78582 /* RegisterController.swift */; };
+		27914B8329CDF7EA00F78582 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B8229CDF7EA00F78582 /* HomeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27914B6329CDE28300F78582 /* ERepair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERepair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27914B6629CDE28300F78582 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27914B6829CDE28300F78582 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		27914B6A29CDE28300F78582 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		27914B6D29CDE28300F78582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		27914B6F29CDE28500F78582 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27914B7229CDE28500F78582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27914B7429CDE28500F78582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27914B7C29CDF70B00F78582 /* ForgotPasswordController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordController.swift; sourceTree = "<group>"; };
+		27914B7E29CDF75A00F78582 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		27914B8029CDF7BD00F78582 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
+		27914B8229CDF7EA00F78582 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +60,33 @@
 		27914B6529CDE28300F78582 /* ERepair */ = {
 			isa = PBXGroup;
 			children = (
+				27914B7A29CDF5C200F78582 /* App */,
+				27914B7E29CDF75A00F78582 /* LoginController.swift */,
+				27914B7C29CDF70B00F78582 /* ForgotPasswordController.swift */,
+				27914B8029CDF7BD00F78582 /* RegisterController.swift */,
+				27914B8229CDF7EA00F78582 /* HomeController.swift */,
+				27914B7B29CDF63100F78582 /* Resources */,
+			);
+			path = ERepair;
+			sourceTree = "<group>";
+		};
+		27914B7A29CDF5C200F78582 /* App */ = {
+			isa = PBXGroup;
+			children = (
 				27914B6629CDE28300F78582 /* AppDelegate.swift */,
 				27914B6829CDE28300F78582 /* SceneDelegate.swift */,
-				27914B6A29CDE28300F78582 /* ViewController.swift */,
-				27914B6C29CDE28300F78582 /* Main.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		27914B7B29CDF63100F78582 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				27914B6F29CDE28500F78582 /* Assets.xcassets */,
 				27914B7129CDE28500F78582 /* LaunchScreen.storyboard */,
 				27914B7429CDE28500F78582 /* Info.plist */,
 			);
-			path = ERepair;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -127,7 +149,6 @@
 			files = (
 				27914B7329CDE28500F78582 /* LaunchScreen.storyboard in Resources */,
 				27914B7029CDE28500F78582 /* Assets.xcassets in Resources */,
-				27914B6E29CDE28300F78582 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,23 +159,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27914B6B29CDE28300F78582 /* ViewController.swift in Sources */,
+				27914B7D29CDF70B00F78582 /* ForgotPasswordController.swift in Sources */,
+				27914B8329CDF7EA00F78582 /* HomeController.swift in Sources */,
+				27914B8129CDF7BD00F78582 /* RegisterController.swift in Sources */,
 				27914B6729CDE28300F78582 /* AppDelegate.swift in Sources */,
 				27914B6929CDE28300F78582 /* SceneDelegate.swift in Sources */,
+				27914B7F29CDF75A00F78582 /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		27914B6C29CDE28300F78582 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				27914B6D29CDE28300F78582 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		27914B7129CDE28500F78582 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -216,7 +232,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -270,7 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 16.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -289,10 +305,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9YW4L3WZ5R;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ERepair/Info.plist;
+				INFOPLIST_FILE = ERepair/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -317,10 +332,9 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9YW4L3WZ5R;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = ERepair/Info.plist;
+				INFOPLIST_FILE = ERepair/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
