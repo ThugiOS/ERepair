@@ -15,6 +15,7 @@
 		27914B7F29CDF75A00F78582 /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B7E29CDF75A00F78582 /* LoginController.swift */; };
 		27914B8129CDF7BD00F78582 /* RegisterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B8029CDF7BD00F78582 /* RegisterController.swift */; };
 		27914B8329CDF7EA00F78582 /* HomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B8229CDF7EA00F78582 /* HomeController.swift */; };
+		27914B8629CEFC0C00F78582 /* AuthHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B8529CEFC0C00F78582 /* AuthHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		27914B7E29CDF75A00F78582 /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		27914B8029CDF7BD00F78582 /* RegisterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterController.swift; sourceTree = "<group>"; };
 		27914B8229CDF7EA00F78582 /* HomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeController.swift; sourceTree = "<group>"; };
+		27914B8529CEFC0C00F78582 /* AuthHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthHeaderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 		27914B6529CDE28300F78582 /* ERepair */ = {
 			isa = PBXGroup;
 			children = (
+				27914B8429CEFB1A00F78582 /* Views */,
 				27914B7A29CDF5C200F78582 /* App */,
 				27914B7E29CDF75A00F78582 /* LoginController.swift */,
 				27914B7C29CDF70B00F78582 /* ForgotPasswordController.swift */,
@@ -87,6 +90,14 @@
 				27914B7429CDE28500F78582 /* Info.plist */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		27914B8429CEFB1A00F78582 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				27914B8529CEFC0C00F78582 /* AuthHeaderView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,6 +176,7 @@
 				27914B6729CDE28300F78582 /* AppDelegate.swift in Sources */,
 				27914B6929CDE28300F78582 /* SceneDelegate.swift in Sources */,
 				27914B7F29CDF75A00F78582 /* LoginController.swift in Sources */,
+				27914B8629CEFC0C00F78582 /* AuthHeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
