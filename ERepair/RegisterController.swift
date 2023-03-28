@@ -54,7 +54,6 @@ class RegisterController: UIViewController {
 
         self.signInButton.translatesAutoresizingMaskIntoConstraints = false
 
-
         NSLayoutConstraint.activate([
             self.headerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 150),
             self.headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -85,11 +84,11 @@ class RegisterController: UIViewController {
             self.signInButton.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
             self.signInButton.heightAnchor.constraint(equalToConstant: 44),
             self.signInButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
-            
-
         ])
     }
     
+    // MARK: - Selectors
+
     @objc
     private func didTapSignUp() {
         let vc = HomeController()
