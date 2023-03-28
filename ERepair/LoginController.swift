@@ -23,6 +23,10 @@ class LoginController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
+        
+        self.signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
+        self.newUserButton.addTarget(self, action: #selector(didTapNewUser), for: .touchUpInside)
+        self.forgotPasswordButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -50,7 +54,7 @@ class LoginController: UIViewController {
         forgotPasswordButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.headerView.topAnchor.constraint(equalTo: self.view.layoutMarginsGuide.topAnchor),
+            self.headerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 150),
             self.headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.headerView.heightAnchor.constraint(equalToConstant: 222),
@@ -60,7 +64,7 @@ class LoginController: UIViewController {
             self.emailField.heightAnchor.constraint(equalToConstant: 55),
             self.emailField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
             
-            self.passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 12),
+            self.passwordField.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 5),
             self.passwordField.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
             self.passwordField.heightAnchor.constraint(equalToConstant: 55),
             self.passwordField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
@@ -70,7 +74,7 @@ class LoginController: UIViewController {
             self.signInButton.heightAnchor.constraint(equalToConstant: 55),
             self.signInButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
             
-            self.newUserButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 9),
+            self.newUserButton.topAnchor.constraint(equalTo: signInButton.bottomAnchor, constant: 20),
             self.newUserButton.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
             self.newUserButton.heightAnchor.constraint(equalToConstant: 44),
             self.newUserButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
@@ -82,4 +86,60 @@ class LoginController: UIViewController {
         ])
     }
     // MARK: - Selectors
+    
+    @objc private func didTapSignIn() {
+        let vc = HomeController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+        
+//        let loginRequest = LoginUserRequest(
+//            email: self.emailField.text ?? "",
+//            password: self.passwordField.text ?? ""
+//        )
+//
+//        // Email check
+//        if !Validator.isValidEmail(for: loginRequest.email) {
+//            AlertManager.showInvalidEmailAlert(on: self)
+//            return
+//        }
+//
+//        // Password check
+//        if !Validator.isValidPassword(for: loginRequest.password) {
+//            AlertManager.showInvalidPasswordAlert(on: self)
+//            return
+//        }
+//
+//        AuthService.shared.signIn(with: loginRequest) { error in
+//            if let error = error {
+//                AlertManager.showSignInErrorsAlert(on: self, with: error)
+//                return
+//            }
+//
+//            if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate {
+//                sceneDelegate.checkAuthentication()
+//            }
+//        }
+    }
+
+    @objc
+    private func didTapNewUser() {
+        let vc = RegisterController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+
+        
+//        let vc = RegisterController()
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
+
+    @objc
+    private func didTapForgotPassword() {
+        let vc = ForgotPasswordController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
+
+        
+//        let vc = ForgotPasswordController()
+//        self.navigationController?.pushViewController(vc, animated: true)
+    }
 }

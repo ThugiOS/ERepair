@@ -30,15 +30,19 @@ class CustomTextField: UITextField {
 //        self.textAlignment =
         
         self.leftViewMode = .always
-        self.leftViewMode = UIView.init(frame: CGRect.init(x: 0, y: 0, width: 12, height: self.frame.size.height))
+        self.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: self.frame.size.height))
         
         switch fieldType {
         case .username:
             self.placeholder = "Username"
         case .email:
             self.placeholder = "Email adress"
+            self.keyboardType = .emailAddress
+            self.textContentType = .emailAddress
         case .password:
             self.placeholder = "Password"
+            self.textContentType = .oneTimeCode
+            self.isSecureTextEntry = true
         }
     }
     
