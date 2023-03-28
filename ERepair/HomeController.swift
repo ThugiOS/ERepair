@@ -8,9 +8,21 @@
 import UIKit
 
 class HomeController: UIViewController {
-
+    
+    //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemRed
+        self.setupUI()
+    }
+    
+    //MARK: - UI Setup
+    private func setupUI() {
+        self.view.backgroundColor = .systemBackground
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(didTapLogout))
+    }
+    
+    //MARK: - Selectors
+    @objc private func didTapLogout() {
+ 
     }
 }

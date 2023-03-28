@@ -89,8 +89,9 @@ class LoginController: UIViewController {
     
     @objc private func didTapSignIn() {
         let vc = HomeController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false, completion: nil)
+        let nav = UINavigationController(rootViewController: vc)
+        nav.modalPresentationStyle = .fullScreen
+        self.present(nav, animated: false, completion: nil)
         
 //        let loginRequest = LoginUserRequest(
 //            email: self.emailField.text ?? "",
