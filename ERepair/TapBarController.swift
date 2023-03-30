@@ -25,18 +25,18 @@ class MainTapBarController: UITabBarController {
         viewControllers = [
             generateVC(
                 viewController: HomeViewController(),
-                title: "Home",
-                image: UIImage(systemName: "house.fill")
+                title: "Person",
+                image: UIImage(systemName: "scooter")
             ),
             generateVC(
                 viewController: CatalogViewController(),
-                title: "Person",
-                image: UIImage(systemName: "person.fill")
+                title: "Prices",
+                image: UIImage(systemName: "magazine.fill")
             ),
             generateVC(
                 viewController: MapViewController(),
-                title: "Setting",
-                image: UIImage(systemName: "slider.horizontal.3")
+                title: "Map",
+                image: UIImage(systemName: "map")
             )
         ]
     }
@@ -51,8 +51,8 @@ class MainTapBarController: UITabBarController {
     // настройка фона тапбара
     // можно просто изменить цвет фона tabBar.backgroundColor = .systemGray
     private func setTapBarBackground() {
-        let positionX: CGFloat = 10.0
-        let positionY: CGFloat = 14.0
+        let positionX: CGFloat = 25.0
+        let positionY: CGFloat = 5.0
         let width = tabBar.bounds.width - positionX * 2
         let height = tabBar.bounds.height + positionY * 2
         

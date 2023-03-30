@@ -91,7 +91,7 @@ class RegisterController: UIViewController {
 
     @objc
     private func didTapSignUp() {
-        let vc = HomeController()
+        let vc = MainTapBarController()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
 
