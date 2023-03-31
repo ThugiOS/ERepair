@@ -8,10 +8,9 @@
 import UIKit
 
 class MasterViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .red
+        self.view.backgroundColor = .systemGray6
     }
-
 }

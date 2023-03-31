@@ -69,8 +69,9 @@ class MainTapBarController: UITabBarController {
         viewController.tabBarItem.image = image
         return viewController
     }
-    
+
     private func setTapBarBackground() {
+        tabBar.backgroundColor = .none
         let positionX: CGFloat = 25.0
         let positionY: CGFloat = 5.0
         let width = tabBar.bounds.width - positionX * 2
