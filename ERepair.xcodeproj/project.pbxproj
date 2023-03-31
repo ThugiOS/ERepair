@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2709DA3829D6DE5700402A83 /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2709DA3729D6DE5700402A83 /* MasterViewController.swift */; };
 		27914B6729CDE28300F78582 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B6629CDE28300F78582 /* AppDelegate.swift */; };
 		27914B6929CDE28300F78582 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B6829CDE28300F78582 /* SceneDelegate.swift */; };
 		27914B7029CDE28500F78582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27914B6F29CDE28500F78582 /* Assets.xcassets */; };
@@ -19,12 +20,13 @@
 		27914B8A29D18F7700F78582 /* CastomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B8929D18F7700F78582 /* CastomButton.swift */; };
 		27914BB629D5B16600F78582 /* TapBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914BB529D5B16600F78582 /* TapBarController.swift */; };
 		27914BB829D5B1AF00F78582 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914BB729D5B1AF00F78582 /* UIColor+Extension.swift */; };
-		27914BBA29D5B27300F78582 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914BB929D5B27300F78582 /* HomeViewController.swift */; };
+		27914BBA29D5B27300F78582 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914BB929D5B27300F78582 /* UserViewController.swift */; };
 		27914BBC29D5B29500F78582 /* CatalogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914BBB29D5B29500F78582 /* CatalogViewController.swift */; };
 		27914BBE29D5B2BF00F78582 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914BBD29D5B2BF00F78582 /* MapViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2709DA3729D6DE5700402A83 /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
 		27914B6329CDE28300F78582 /* ERepair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERepair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27914B6629CDE28300F78582 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27914B6829CDE28300F78582 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -39,7 +41,7 @@
 		27914B8929D18F7700F78582 /* CastomButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastomButton.swift; sourceTree = "<group>"; };
 		27914BB529D5B16600F78582 /* TapBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TapBarController.swift; sourceTree = "<group>"; };
 		27914BB729D5B1AF00F78582 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
-		27914BB929D5B27300F78582 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		27914BB929D5B27300F78582 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		27914BBB29D5B29500F78582 /* CatalogViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatalogViewController.swift; sourceTree = "<group>"; };
 		27914BBD29D5B2BF00F78582 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -89,7 +91,8 @@
 				27914B8029CDF7BD00F78582 /* RegisterController.swift */,
 				27914B7B29CDF63100F78582 /* Resources */,
 				27914BB529D5B16600F78582 /* TapBarController.swift */,
-				27914BB929D5B27300F78582 /* HomeViewController.swift */,
+				27914BB929D5B27300F78582 /* UserViewController.swift */,
+				2709DA3729D6DE5700402A83 /* MasterViewController.swift */,
 				27914BBB29D5B29500F78582 /* CatalogViewController.swift */,
 				27914BBD29D5B2BF00F78582 /* MapViewController.swift */,
 				2709DA1629D5C65C00402A83 /* Extentions */,
@@ -207,7 +210,8 @@
 				27914B7F29CDF75A00F78582 /* LoginController.swift in Sources */,
 				27914B8629CEFC0C00F78582 /* AuthHeaderView.swift in Sources */,
 				27914B8A29D18F7700F78582 /* CastomButton.swift in Sources */,
-				27914BBA29D5B27300F78582 /* HomeViewController.swift in Sources */,
+				27914BBA29D5B27300F78582 /* UserViewController.swift in Sources */,
+				2709DA3829D6DE5700402A83 /* MasterViewController.swift in Sources */,
 				27914BBE29D5B2BF00F78582 /* MapViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

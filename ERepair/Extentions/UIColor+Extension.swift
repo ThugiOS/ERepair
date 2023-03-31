@@ -13,7 +13,7 @@ extension UIColor {
         #colorLiteral(red: 0.09019608051, green: 0, blue: 0.3019607961, alpha: 1)
     }
     
-    static var main: UIColor {
+    static var backgroundTapBar: UIColor {
         #colorLiteral(red: 1, green: 0.9777233101, blue: 0.9492885842, alpha: 0.5040922619)
     }
     

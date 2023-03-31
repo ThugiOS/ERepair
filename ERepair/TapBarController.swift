@@ -17,14 +17,15 @@ class MainTapBarController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        generateTabBar()
+//        generateTabBarUser()
+        generateTabBarMaster()
         setTapBarBackground()
     }
     
-    private func generateTabBar() {
+    private func generateTabBarUser() {
         viewControllers = [
             generateVC(
-                viewController: HomeViewController(),
+                viewController: UserViewController(),
                 title: "Person",
                 image: UIImage(systemName: "scooter")
             ),
@@ -41,6 +42,27 @@ class MainTapBarController: UITabBarController {
         ]
     }
     
+    private func generateTabBarMaster() {
+        viewControllers = [
+            generateVC(
+                viewController: MasterViewController(),
+                title: "Master",
+                image: UIImage(systemName: "wrench.adjustable")
+            ),
+            generateVC(
+                viewController: CatalogViewController(),
+                title: "Prices",
+                image: UIImage(systemName: "magazine.fill")
+            ),
+            generateVC(
+                viewController: MapViewController(),
+                title: "Map",
+                image: UIImage(systemName: "map")
+                
+            )
+        ]
+    }
+    
     // настройка иконки тапбара
     private func generateVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
         viewController.tabBarItem.title = title
@@ -48,8 +70,6 @@ class MainTapBarController: UITabBarController {
         return viewController
     }
     
-    // настройка фона тапбара
-    // можно просто изменить цвет фона tabBar.backgroundColor = .systemGray
     private func setTapBarBackground() {
         let positionX: CGFloat = 25.0
         let positionY: CGFloat = 5.0
@@ -70,9 +90,8 @@ class MainTapBarController: UITabBarController {
         // разместим элементы по центру
         tabBar.itemPositioning = .centered
 
-        roundLayer.fillColor = UIColor.main.cgColor
+        roundLayer.fillColor = UIColor.backgroundTapBar.cgColor
         tabBar.tintColor = .tabBarItemAccent
         tabBar.unselectedItemTintColor = .tabBarItemLight
-        
     }
 }
