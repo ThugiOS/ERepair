@@ -10,6 +10,6 @@ import UIKit
 class UserViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemGray5
+        self.view.backgroundColor = .systemGray3
     }
 }

@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import FirebaseAuth
+import FirebaseCore
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
@@ -23,6 +25,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window.rootViewController = nav
         self.window = window
         self.window?.makeKeyAndVisible()
+        
+        let userRequest = RegisterUserRequest.init(username: "artem",
+                                                   email: "code@code.com",
+                                                   password: "qwerty123"
+        )
+        
+        AuthService.shared.registerUser(with: userRequest) { wasRegistered, error in
+            if let error {
+                print(error.localizedDescription)
+                return
+            }
+            print("User was registered", wasRegistered)
+        }
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

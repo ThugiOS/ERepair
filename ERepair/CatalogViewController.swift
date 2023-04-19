@@ -3,71 +3,86 @@
 //  ERepair
 //
 //  Created by Никитин Артем on 30.03.23.
+// UIPageControl
 //
 
 import UIKit
 
-class CatalogViewController: UIViewController {
-    // MARK: - Variables
-    private lazy var scrollView: UIScrollView = {
-        let scrollView = UIScrollView()
-        scrollView.backgroundColor = .systemBackground
-        scrollView.frame = view.bounds
-        scrollView.contentSize = contentSize
-        return scrollView
-    }()
+class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
-    private lazy var contentView: UIView = {
-        let contentView = UIView()
-        contentView.backgroundColor = .systemBackground
-        contentView.frame.size = contentSize
-        return contentView
-    }()
+    var collectionView: UICollectionView!
     
-    private let stackView: UIStackView = {
-        let stackView = UIStackView()
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.spacing = 10
-        return stackView
-    }()
+    let cellIdentifier = "MyCell"
     
-    private var contentSize: CGSize {
-        CGSize.init(width: view.frame.width, height: view.frame.height + 400)
-    }
-
-    // MARK: - LifeCycle
+    var images = [UIImage(named: "image1"), UIImage(named: "image2"), UIImage(named: "image3")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupUI()
+
+        
+        // Initialize collection view layout
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .horizontal
+        layout.minimumInteritemSpacing = 0
+        layout.minimumLineSpacing = 0
+        
+        // Initialize collection view
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        collectionView.backgroundColor = .systemBackground
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.isPagingEnabled = true
+        
+        // Add collection view to view hierarchy
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: -10.0),
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
     }
     
-    // MARK: - UI Setup
-    private func setupUI() {
-        view.addSubview(scrollView)
-        scrollView.addSubview(contentView)
-        contentView.addSubview(stackView)
+    // MARK: - UICollectionViewDataSource
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return images.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath)
         
-        for _ in 0..<7 {
-            let view = UIView()
-            view.backgroundColor = .lightGray
-            stackView.addArrangedSubview(view)
-        }
+        // Remove existing image view
+        cell.contentView.subviews.forEach { $0.removeFromSuperview() }
         
-        stackView.translatesAutoresizingMaskIntoConstraints = false
+        // Add new image view
+        let imageView = UIImageView(frame: cell.contentView.bounds)
+        imageView.image = images[indexPath.item]
+        imageView.contentMode = .scaleAspectFill
+        imageView.layer.cornerRadius = 20
+        imageView.clipsToBounds = true
+        cell.contentView.addSubview(imageView)
         
-        NSLayoutConstraint.activate([
-            stackView.topAnchor.constraint(equalTo: scrollView.topAnchor),
-            stackView.leftAnchor.constraint(equalTo: contentView.leftAnchor),
-            stackView.rightAnchor.constraint(equalTo: contentView.rightAnchor),
-        ])
+        // Flip image horizontally
+        imageView.transform = CGAffineTransform(scaleX: -1, y: 1)
         
-        // заполним его прямоугольниками
-        for view in stackView.arrangedSubviews {
-            NSLayoutConstraint.activate([
-                view.widthAnchor.constraint(equalTo: stackView.widthAnchor, constant: -10.0),
-                view.heightAnchor.constraint(equalToConstant: 165.0),
-            ])
-        }
+        return cell
+    }
+    
+    // MARK: - UICollectionViewDelegateFlowLayout
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return collectionView.bounds.size
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
     }
 }

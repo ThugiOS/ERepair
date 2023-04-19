@@ -7,12 +7,6 @@
 
 import UIKit
 
-/*
- UITabBarController включает в себя массив с ВьюКонтороллерами, между которыми
- мы можем переключаться используя ТапБар
- */
-
-
 class MainTapBarController: UITabBarController {
     
     override func viewDidLoad() {
@@ -36,8 +30,8 @@ class MainTapBarController: UITabBarController {
             ),
             generateVC(
                 viewController: MapViewController(),
-                title: "Map",
-                image: UIImage(systemName: "map")
+                title: "Contacts & Map",
+                image: UIImage(systemName: "phone.bubble.left")
             )
         ]
     }
@@ -56,14 +50,13 @@ class MainTapBarController: UITabBarController {
             ),
             generateVC(
                 viewController: MapViewController(),
-                title: "Map",
-                image: UIImage(systemName: "map")
+                title: "Contacts & Map",
+                image: UIImage(systemName: "phone.bubble.left")
                 
             )
         ]
     }
     
-    // настройка иконки тапбара
     private func generateVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
         viewController.tabBarItem.title = title
         viewController.tabBarItem.image = image
@@ -76,19 +69,16 @@ class MainTapBarController: UITabBarController {
         let positionY: CGFloat = 5.0
         let width = tabBar.bounds.width - positionX * 2
         let height = tabBar.bounds.height + positionY * 2
-        
+
         let roundLayer = CAShapeLayer()
         let bezierPath = UIBezierPath(
             roundedRect: CGRect(x: positionX, y: tabBar.bounds.minY - positionY, width: width, height: height),
             cornerRadius: height / 2
         )
-        
+
         roundLayer.path = bezierPath.cgPath
-        // помещаем созданный слой на тапбар
         tabBar.layer.insertSublayer(roundLayer, at: 0)
-        // ширина элементов тапбара
         tabBar.itemWidth = width / 5
-        // разместим элементы по центру
         tabBar.itemPositioning = .centered
 
         roundLayer.fillColor = UIColor.backgroundTapBar.cgColor

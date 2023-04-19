@@ -9,8 +9,9 @@
 import UIKit
 
 class MapViewController: UIViewController {
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .systemGray6
+        view.backgroundColor = .systemGray4
     }
 }
