@@ -20,6 +20,8 @@
 		2744155329EFFACC00D3D097 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744155229EFFACC00D3D097 /* AuthService.swift */; };
 		2744155529EFFC5100D3D097 /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744155429EFFC5100D3D097 /* RegisterUserRequest.swift */; };
 		2744155829F2934600D3D097 /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744155729F2934600D3D097 /* LoginUserRequest.swift */; };
+		2744155A29F2C44900D3D097 /* ValidationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744155929F2C44900D3D097 /* ValidationManager.swift */; };
+		2744155C29F2CF9800D3D097 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744155B29F2CF9800D3D097 /* User.swift */; };
 		27914B6729CDE28300F78582 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B6629CDE28300F78582 /* AppDelegate.swift */; };
 		27914B6929CDE28300F78582 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B6829CDE28300F78582 /* SceneDelegate.swift */; };
 		27914B7029CDE28500F78582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27914B6F29CDE28500F78582 /* Assets.xcassets */; };
@@ -44,6 +46,8 @@
 		2744155229EFFACC00D3D097 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2744155429EFFC5100D3D097 /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
 		2744155729F2934600D3D097 /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
+		2744155929F2C44900D3D097 /* ValidationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationManager.swift; sourceTree = "<group>"; };
+		2744155B29F2CF9800D3D097 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		27914B6329CDE28300F78582 /* ERepair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERepair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27914B6629CDE28300F78582 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27914B6829CDE28300F78582 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +98,7 @@
 			children = (
 				2744155429EFFC5100D3D097 /* RegisterUserRequest.swift */,
 				2744155729F2934600D3D097 /* LoginUserRequest.swift */,
+				2744155B29F2CF9800D3D097 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -131,6 +136,7 @@
 				2709DA1629D5C65C00402A83 /* Extentions */,
 				2744153D29EFDB7B00D3D097 /* AlertManager.swift */,
 				2744155229EFFACC00D3D097 /* AuthService.swift */,
+				2744155929F2C44900D3D097 /* ValidationManager.swift */,
 				2744155629EFFC5F00D3D097 /* Models */,
 			);
 			path = ERepair;
@@ -250,12 +256,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				27914B7D29CDF70B00F78582 /* ForgotPasswordController.swift in Sources */,
+				2744155A29F2C44900D3D097 /* ValidationManager.swift in Sources */,
 				27914BB629D5B16600F78582 /* TapBarController.swift in Sources */,
 				2744153E29EFDB7B00D3D097 /* AlertManager.swift in Sources */,
 				2744155529EFFC5100D3D097 /* RegisterUserRequest.swift in Sources */,
 				27914BBC29D5B29500F78582 /* CatalogViewController.swift in Sources */,
 				27914BB829D5B1AF00F78582 /* UIColor+Extension.swift in Sources */,
 				27914B8129CDF7BD00F78582 /* RegisterController.swift in Sources */,
+				2744155C29F2CF9800D3D097 /* User.swift in Sources */,
 				27914B6729CDE28300F78582 /* AppDelegate.swift in Sources */,
 				27914B8829D1876C00F78582 /* CustomTextField.swift in Sources */,
 				27914B6929CDE28300F78582 /* SceneDelegate.swift in Sources */,

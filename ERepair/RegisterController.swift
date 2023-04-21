@@ -91,10 +91,44 @@ class RegisterController: UIViewController {
 
     @objc
     private func didTapSignUp() {
-        let vc = MainTapBarController()
-        vc.modalPresentationStyle = .fullScreen
-        self.present(vc, animated: false, completion: nil)
-
+        let registerUserRequest = RegisterUserRequest(username: self.usernameField.text ?? "",
+                                                      email: self.emailField.text ?? "",
+                                                      password: self.passwordField.text ?? ""
+        )
+        
+        // username check
+        if !ValidationManager.isValidUsername(for: registerUserRequest.username) {
+            AlertManager.showInvalidUsernameAlert(on: self)
+            return
+        }
+        // email check
+        if !ValidationManager.isValidEmail(for: registerUserRequest.email) {
+            AlertManager.showInvalidEmailAlert(on: self)
+            return
+        }
+        // password check
+        if !ValidationManager.isValidPassword(for: registerUserRequest.password) {
+            AlertManager.showInvalidPasswordAlert(on: self)
+            return
+        }
+        
+        print(registerUserRequest)
+        // Send user data to Firebase
+        AuthService.shared.registerUser(with: registerUserRequest) { [weak self]
+            wasRegistered, error in
+             guard let self = self else { return }
+            
+            if let error = error {
+                AlertManager.showRegistrationErrorAlert(on: self, with: error)
+                return
+            }
+            
+            if wasRegistered {
+                if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate { sceneDelegate.checkAuthentication() }
+            } else {
+                AlertManager.showRegistrationErrorAlert(on: self)
+            }
+        }
     }
     
     @objc
