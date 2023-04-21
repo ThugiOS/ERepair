@@ -15,28 +15,43 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
+        self.setupWindow(with: scene)
+        self.checkAuthentication()
+    }
+    
+    private func setupWindow(with scene: UIScene) {
         guard let windowScene = (scene as? UIWindowScene) else { return }
         let window = UIWindow(windowScene: windowScene)
-        
-        let vc = LoginController()
-        let nav = UINavigationController(rootViewController: vc)
-        nav.modalPresentationStyle = .fullScreen
-        
-        window.rootViewController = nav
         self.window = window
         self.window?.makeKeyAndVisible()
-        
-        let userRequest = RegisterUserRequest.init(username: "artem",
-                                                   email: "code@code.com",
-                                                   password: "qwerty123"
-        )
-        
-        AuthService.shared.registerUser(with: userRequest) { wasRegistered, error in
-            if let error {
-                print(error.localizedDescription)
-                return
+    }
+    
+    public func checkAuthentication() {
+        if Auth.auth().currentUser == nil {
+            // Go to sign in screen
+            self.goToController(with: LoginController())
+        } else {
+            // Go home screen
+            self.goToController(with: MainTapBarController())
+        }
+    }
+    
+    // add animation
+    private func goToController(with viewController: UIViewController) {
+        DispatchQueue.main.async { [weak self] in
+            UIView.animate(withDuration: 0.25) {
+                self?.window?.layer.opacity = 0
+                
+            } completion: { [weak self] _ in
+                 
+                let nav = UINavigationController(rootViewController: viewController)
+                nav.modalPresentationStyle = .fullScreen
+                self?.window?.rootViewController = nav
+                
+                UIView.animate(withDuration: 0.25) { [weak self]  in
+                    self?.window?.layer.opacity = 1
+                }
             }
-            print("User was registered", wasRegistered)
         }
     }
 

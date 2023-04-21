@@ -19,6 +19,7 @@
 		2744155129EFE78E00D3D097 /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 2744155029EFE78E00D3D097 /* FirebaseStorage */; };
 		2744155329EFFACC00D3D097 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744155229EFFACC00D3D097 /* AuthService.swift */; };
 		2744155529EFFC5100D3D097 /* RegisterUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744155429EFFC5100D3D097 /* RegisterUserRequest.swift */; };
+		2744155829F2934600D3D097 /* LoginUserRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744155729F2934600D3D097 /* LoginUserRequest.swift */; };
 		27914B6729CDE28300F78582 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B6629CDE28300F78582 /* AppDelegate.swift */; };
 		27914B6929CDE28300F78582 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B6829CDE28300F78582 /* SceneDelegate.swift */; };
 		27914B7029CDE28500F78582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27914B6F29CDE28500F78582 /* Assets.xcassets */; };
@@ -42,6 +43,7 @@
 		2744154129EFE54300D3D097 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2744155229EFFACC00D3D097 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		2744155429EFFC5100D3D097 /* RegisterUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterUserRequest.swift; sourceTree = "<group>"; };
+		2744155729F2934600D3D097 /* LoginUserRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginUserRequest.swift; sourceTree = "<group>"; };
 		27914B6329CDE28300F78582 /* ERepair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERepair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27914B6629CDE28300F78582 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		27914B6829CDE28300F78582 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				2744155429EFFC5100D3D097 /* RegisterUserRequest.swift */,
+				2744155729F2934600D3D097 /* LoginUserRequest.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 				27914B8629CEFC0C00F78582 /* AuthHeaderView.swift in Sources */,
 				27914B8A29D18F7700F78582 /* CastomButton.swift in Sources */,
 				27914BBA29D5B27300F78582 /* UserViewController.swift in Sources */,
+				2744155829F2934600D3D097 /* LoginUserRequest.swift in Sources */,
 				2709DA3829D6DE5700402A83 /* MasterViewController.swift in Sources */,
 				27914BBE29D5B2BF00F78582 /* MapViewController.swift in Sources */,
 				2744155329EFFACC00D3D097 /* AuthService.swift in Sources */,
