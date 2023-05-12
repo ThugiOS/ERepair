@@ -13,19 +13,23 @@ class ForgotPasswordController: UIViewController {
     private let headerView = AuthHeaderView(title: "Forgot Password", subTitle: "Reset your password")
     private let emailField = CustomTextField(fieldType: .email)
     private let resetButton = CustomButton(title: "Sign UP", hasBackground: true, fontSize: .big)
+    
+    private let signInButton = CustomButton(title: "Already have an account? Sign In.", fontSize: .medium)
 
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.setupUI()
+        
+        self.hideKeyboardWhenTappedAround()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.isHidden = false // button back
         
-//        self.resetButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
+        self.resetButton.addTarget(self, action: #selector(didTapForgotPassword), for: .touchUpInside)
+        self.signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
     }
     
     //MARK: - UI Setup
@@ -35,10 +39,13 @@ class ForgotPasswordController: UIViewController {
         self.view.addSubview(headerView)
         self.view.addSubview(emailField)
         self.view.addSubview(resetButton)
+        self.view.addSubview(signInButton)
         
         headerView.translatesAutoresizingMaskIntoConstraints = false
         emailField.translatesAutoresizingMaskIntoConstraints = false
         resetButton.translatesAutoresizingMaskIntoConstraints = false
+        signInButton.translatesAutoresizingMaskIntoConstraints = false
+
         
         NSLayoutConstraint.activate([
             
@@ -56,6 +63,11 @@ class ForgotPasswordController: UIViewController {
             self.resetButton.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
             self.resetButton.heightAnchor.constraint(equalToConstant: 55),
             self.resetButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
+            
+            self.signInButton.topAnchor.constraint(equalTo: resetButton.bottomAnchor, constant: 12),
+            self.signInButton.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+            self.signInButton.heightAnchor.constraint(equalToConstant: 55),
+            self.signInButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
         ])
     }
     
@@ -63,11 +75,6 @@ class ForgotPasswordController: UIViewController {
     @objc
     private func didTapForgotPassword() {
         let email = self.emailField.text ?? ""
-
-        if !ValidationManager.isValidPassword(for: email) {
-            AlertManager.showInvalidEmailAlert(on: self)
-            return
-        }
 
         AuthService.shared.forgotPassword(with: email) { [weak self] error in
             guard let self = self else { return }
@@ -78,5 +85,12 @@ class ForgotPasswordController: UIViewController {
 
             AlertManager.showPasswordResetSent(on: self)
         }
+    }
+    
+    @objc
+    private func didTapSignIn() {
+        let vc = LoginController()
+        vc.modalPresentationStyle = .fullScreen
+        self.present(vc, animated: false, completion: nil)
     }
 }

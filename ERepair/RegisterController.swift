@@ -25,6 +25,8 @@ class RegisterController: UIViewController {
         
         self.setupUI()
         
+        self.hideKeyboardWhenTappedAround()
+        
         // Button actions
         self.signUpButton.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
         self.signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
@@ -39,6 +41,7 @@ class RegisterController: UIViewController {
     private func setupUI() {
         self.view.backgroundColor = .systemBackground
         
+ 
         self.view.addSubview(headerView)
         self.view.addSubview(usernameField)
         self.view.addSubview(emailField)

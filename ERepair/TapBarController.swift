@@ -12,8 +12,8 @@ class MainTapBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-//        generateTabBarUser()
-        generateTabBarMaster()
+        generateTabBarUser()
+//        generateTabBarMaster()
         setTapBarBackground()
     }
     
