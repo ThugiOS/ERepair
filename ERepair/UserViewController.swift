@@ -10,7 +10,7 @@ import UIKit
 class UserViewController: UIViewController {
     //MARK: - UI Components
     
-    private let logOut = CustomButton(title: " Log Out ", hasBackground: true, fontSize: .small)
+    private let logOut = CustomButton(title: " Log Out ", hasBackground: false, fontSize: .small)
     private let sendMessage = CustomButton(title: "Send message", hasBackground: true, fontSize: .small)
 
     private let label: UILabel = {
@@ -89,7 +89,7 @@ class UserViewController: UIViewController {
     
     @objc func buttonPressed() {
         let modalVC = MessageListViewController()
-        modalVC.modalPresentationStyle = .fullScreen // Устанавливаем стиль отображения модального окна
+        modalVC.modalPresentationStyle = .automatic // Устанавливаем стиль отображения модального окна
         modalVC.view.backgroundColor = .white // Устанавливаем цвет фона модального окна
 
         // Отображаем модальное окно
