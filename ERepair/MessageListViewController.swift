@@ -47,8 +47,13 @@ class MessageListViewController: UIViewController {
     
     
     lazy var messageCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, Message> {
-        cell, indexPath, itemIdentifier in
+        cell, indexPath, item in
         
+        var configuration = UIListContentConfiguration.subtitleCell()
+        configuration.text = "From: \(item.from)"
+        configuration.secondaryText = item.content
+
+        cell.contentConfiguration = configuration
     }
     
     lazy var dataSource = DataSource(collectionView: collectionView) {
@@ -96,19 +101,34 @@ class MessageListViewController: UIViewController {
         messagesRef.getData { error, snapshot in
             guard error == nil,
                   let snapshot else {
-                print(error ?? "unknown")
+                print( "unknown")
                 return
             }
-            
-            guard let messages = try? snapshot.data(as: [UUID: UserMessage].self) else {
-                print("Can not decode")
-                return
-            }
-            
-            DispatchQueue.main.async {
-                self.messages = messages
+
+            do {
+                let messages = try snapshot.data(as: [UUID: UserMessage].self)
+
+                let orderedIds = messages
+                    .mapValues { $0.date }
+                    .sorted(using: KeyPathComparator(\.value, order: .reverse))
+                    .map(\.key)
+
+                DispatchQueue.main.async {
+                    self.messages = messages
+                    self.orderedMessageIds = orderedIds
+                    self.reloadCollectionViewData()
+                }
+            } catch {
+                print(error)
             }
         }
+    }
+    
+    private func reloadCollectionViewData() {
+        var snapshot = Snapshot()
+        snapshot.appendSections([0])
+        snapshot.appendItems(self.orderedMessageIds, toSection: 0)
+        dataSource.apply(snapshot, animatingDifferences: true)
     }
     
     // MARK: - UI Setup
@@ -143,3 +163,10 @@ class MessageListViewController: UIViewController {
     }
 }
 
+extension UUID: CodingKeyRepresentable {
+    public init?<T>(codingKey: T) where T: CodingKey {
+        self.init(uuidString: codingKey.stringValue)
+    }
+
+    public var codingKey: CodingKey { uuidString.codingKey }
+}
