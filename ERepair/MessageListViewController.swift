@@ -33,6 +33,8 @@ class MessageListViewController: UIViewController {
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, MessageId>
     
     // MARK: - UI Components
+    private let closeButton = CustomButton(title: "Close", hasBackground: false, fontSize: .medium)
+    
     private let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .vertical
@@ -50,8 +52,8 @@ class MessageListViewController: UIViewController {
         cell, indexPath, item in
         
         var configuration = UIListContentConfiguration.subtitleCell()
-        configuration.text = "From: \(item.from)"
-        configuration.secondaryText = item.content
+        configuration.text = item.content
+        configuration.secondaryText = "From: \(item.from), \(item.date)"
 
         cell.contentConfiguration = configuration
     }
@@ -77,6 +79,7 @@ class MessageListViewController: UIViewController {
         
         setupUI()
         
+        self.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
         self.newMessage.addTarget(self, action: #selector(buttonNewMessagePressed), for: .touchUpInside)
         
         let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
@@ -133,19 +136,23 @@ class MessageListViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
-
+        self.view.addSubview(self.closeButton)
         self.view.addSubview(self.collectionView)
         self.view.addSubview(self.newMessage)
         
+        self.closeButton.translatesAutoresizingMaskIntoConstraints = false
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.newMessage.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 10.0),
+            self.closeButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 50.0),
+            self.closeButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0),
+            
+            self.collectionView.topAnchor.constraint(equalTo: self.closeButton.bottomAnchor, constant: 10.0),
             self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.95),
-            self.collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.80),
+            self.collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.75),
             
             self.newMessage.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor, constant: 10.0),
             self.newMessage.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
@@ -154,7 +161,11 @@ class MessageListViewController: UIViewController {
         ])
     }
     
-    // MARK: - Selectors    
+    // MARK: - Selectors
+    @objc func closeButtonTapped() {
+        dismiss(animated: true, completion: nil)
+    }
+    
     @objc func buttonNewMessagePressed() {
         let modalVC = NewMessageViewController()
         modalVC.modalPresentationStyle = .automatic
@@ -163,6 +174,7 @@ class MessageListViewController: UIViewController {
     }
 }
 
+// что-бы UUID поддерживался в качестве ключа словарей, которые приходят в codable
 extension UUID: CodingKeyRepresentable {
     public init?<T>(codingKey: T) where T: CodingKey {
         self.init(uuidString: codingKey.stringValue)
