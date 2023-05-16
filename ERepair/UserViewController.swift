@@ -95,5 +95,4 @@ class UserViewController: UIViewController {
         // Отображаем модальное окно
         self.present(modalVC, animated: true, completion: nil)
     }
-    
 }

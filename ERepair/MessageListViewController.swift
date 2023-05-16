@@ -46,8 +46,6 @@ class MessageListViewController: UIViewController {
     
     private let newMessage = CustomButton(title: "New message", hasBackground: true, fontSize: .medium)
     
-    
-    
     lazy var messageCellRegistration = UICollectionView.CellRegistration<UICollectionViewCell, Message> {
         cell, indexPath, item in
         
@@ -163,7 +161,7 @@ class MessageListViewController: UIViewController {
     
     // MARK: - Selectors
     @objc func closeButtonTapped() {
-        dismiss(animated: true, completion: nil)
+        self.dismiss(animated: true, completion: nil)
     }
     
     @objc func buttonNewMessagePressed() {

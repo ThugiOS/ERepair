@@ -6,14 +6,14 @@
 //
 
 import UIKit
+import FirebaseAuth
 import FirebaseDatabase
 import FirebaseDatabaseSwift
-
 
 class NewMessageViewController: UIViewController {
     
     // MARK: - UI Components
-    private let emailField = CustomTextField(fieldType: .username)
+    private let emailField = CustomTextField(fieldType: .email)
     private let textView = UITextView(frame: .zero)
     private let sendButton = CustomButton(title: "Send", hasBackground: false, fontSize: .medium)
     
@@ -24,6 +24,8 @@ class NewMessageViewController: UIViewController {
         textView.delegate = self
         
         setupUI()
+        
+        self.sendButton.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
     }
     
     // MARK: - UI Setup
@@ -36,8 +38,6 @@ class NewMessageViewController: UIViewController {
         self.textView.translatesAutoresizingMaskIntoConstraints = false
         self.sendButton.translatesAutoresizingMaskIntoConstraints = false
 
-
-        
         NSLayoutConstraint.activate([
             self.emailField.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 10.0),
             self.emailField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -57,6 +57,27 @@ class NewMessageViewController: UIViewController {
     }
     
     // MARK: - Selectors
+    @objc func sendButtonTapped() {
+        let newMessageId = UUID()
+        let dbRef = Database.database().reference()
+        let messageRef = dbRef.child("messages").child(newMessageId.uuidString)
+        
+        let message = UserMessage(id: newMessageId,
+                                  from: Auth.auth().currentUser?.email ?? "unknown sender",
+                                  to: emailField.text ?? "unknown receiver",
+                                  content: textView.text, date: Date()
+        )
+        
+       try? messageRef.setValue(from: message) { error in
+            if let error {
+                print("error")
+            } else {
+                DispatchQueue.main.async {
+                    self.dismiss(animated: true, completion: nil)
+                }
+            }
+        }
+    }
 }
 
 extension NewMessageViewController: UITextViewDelegate {

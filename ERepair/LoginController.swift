@@ -131,7 +131,6 @@ class LoginController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
 
-        
 //        let vc = RegisterController()
 //        self.navigationController?.pushViewController(vc, animated: true)
     }
@@ -142,7 +141,6 @@ class LoginController: UIViewController {
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
 
-        
 //        let vc = ForgotPasswordController()
 //        self.navigationController?.pushViewController(vc, animated: true)
     }
