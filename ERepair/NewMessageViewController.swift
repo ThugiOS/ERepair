@@ -3,7 +3,7 @@
 //  ERepair
 //
 //  Created by Никитин Артем on 13.05.23.
-//
+// 3:21
 
 import UIKit
 import FirebaseAuth
@@ -58,28 +58,50 @@ class NewMessageViewController: UIViewController {
     
     // MARK: - Selectors
     @objc func sendButtonTapped() {
+        
         let newMessageId = UUID()
+        
+        let receipientEmail = emailField.text
+        
         let dbRef = Database.database().reference()
-        let messageRef = dbRef.child("messages").child(newMessageId.uuidString)
         
-        let message = UserMessage(id: newMessageId,
-                                  from: Auth.auth().currentUser?.email ?? "unknown sender",
-                                  to: emailField.text ?? "unknown receiver",
-                                  content: textView.text, date: Date()
-        )
+        let userRef = dbRef.child("users").queryOrdered(byChild: "email").queryEqual(toValue: receipientEmail)
         
-       try? messageRef.setValue(from: message) { error in
-            if let error {
-                print("error")
-            } else {
-                DispatchQueue.main.async {
-                    self.dismiss(animated: true, completion: nil)
+        userRef.getData { error, snapshot in
+            guard error == nil,
+                  let snapshot else {
+                print(error ?? "error")
+                return
+            }
+            
+            guard let users = try? snapshot.data(as: [String: UserContent].self),
+                  let userId = users.first?.value.id else {
+                print("wrong data")
+                return
+            }
+            
+            let messageRef = dbRef.child("messages").child(userId).child(newMessageId.uuidString)
+            
+            let message = UserMessage(id: newMessageId,
+                                      from: Auth.auth().currentUser!.email ?? "unknown sender",
+                                      to: receipientEmail ?? "unknown receiver",
+                                      content: self.textView.text,
+                                      date: Date()
+            )
+            
+           try? messageRef.setValue(from: message) { error in
+                if let error {
+                    print("error")
+                } else {
+                    DispatchQueue.main.async {
+                        self.dismiss(animated: true, completion: nil)
+                    }
                 }
             }
         }
+        
     }
 }
 
 extension NewMessageViewController: UITextViewDelegate {
-    
 }

@@ -121,11 +121,11 @@ class RegisterController: UIViewController {
             wasRegistered, error in
              guard let self = self else { return }
             
-            if let error = error {
+            if let error {
                 AlertManager.showRegistrationErrorAlert(on: self, with: error)
                 return
             }
-            
+
             if wasRegistered {
                 if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate { sceneDelegate.checkAuthentication() }
             } else {

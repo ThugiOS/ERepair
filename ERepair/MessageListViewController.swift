@@ -6,6 +6,7 @@
 // 1 32
 
 import UIKit
+import FirebaseAuth
 import FirebaseDatabase
 import FirebaseDatabaseSwift
 
@@ -98,11 +99,11 @@ class MessageListViewController: UIViewController {
     // MARK: - Private Methods
     private func updateData() {
         let dbRer = Database.database().reference()
-        let messagesRef = dbRer.child("messages")
+        let messagesRef = dbRer.child("messages").child(Auth.auth().currentUser!.uid)
         messagesRef.getData { error, snapshot in
             guard error == nil,
                   let snapshot else {
-                print( "unknown")
+                print(error ?? "unknown")
                 return
             }
 

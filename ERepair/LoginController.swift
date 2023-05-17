@@ -91,11 +91,6 @@ class LoginController: UIViewController {
     // MARK: - Selectors
     
     @objc private func didTapSignIn() {
-//        let vc = MainTapBarController()
-//        let nav = UINavigationController(rootViewController: vc)
-//        nav.modalPresentationStyle = .fullScreen
-//        self.present(nav, animated: false, completion: nil)
-        
         let loginRequest = LoginUserRequest(
             email: self.emailField.text ?? "",
             password: self.passwordField.text ?? ""
@@ -130,9 +125,6 @@ class LoginController: UIViewController {
         let vc = RegisterController()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
-
-//        let vc = RegisterController()
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
 
     @objc
@@ -140,8 +132,5 @@ class LoginController: UIViewController {
         let vc = ForgotPasswordController()
         vc.modalPresentationStyle = .fullScreen
         self.present(vc, animated: false, completion: nil)
-
-//        let vc = ForgotPasswordController()
-//        self.navigationController?.pushViewController(vc, animated: true)
     }
 }

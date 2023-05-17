@@ -24,8 +24,6 @@
 		2744155C29F2CF9800D3D097 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744155B29F2CF9800D3D097 /* User.swift */; };
 		2744155E29F4686000D3D097 /* UIViewController+extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744155D29F4686000D3D097 /* UIViewController+extention.swift */; };
 		2744156029F6DACD00D3D097 /* MessageListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744155F29F6DACD00D3D097 /* MessageListViewController.swift */; };
-		2744156229FBD4CD00D3D097 /* OrderStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744156129FBD4CD00D3D097 /* OrderStatus.swift */; };
-		2744156429FBD75D00D3D097 /* UserContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744156329FBD75D00D3D097 /* UserContent.swift */; };
 		274415662A0F875400D3D097 /* NewMessageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274415652A0F875400D3D097 /* NewMessageViewController.swift */; };
 		27914B6729CDE28300F78582 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B6629CDE28300F78582 /* AppDelegate.swift */; };
 		27914B6929CDE28300F78582 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27914B6829CDE28300F78582 /* SceneDelegate.swift */; };
@@ -55,8 +53,6 @@
 		2744155B29F2CF9800D3D097 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		2744155D29F4686000D3D097 /* UIViewController+extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+extention.swift"; sourceTree = "<group>"; };
 		2744155F29F6DACD00D3D097 /* MessageListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageListViewController.swift; sourceTree = "<group>"; };
-		2744156129FBD4CD00D3D097 /* OrderStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderStatus.swift; sourceTree = "<group>"; };
-		2744156329FBD75D00D3D097 /* UserContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserContent.swift; sourceTree = "<group>"; };
 		274415652A0F875400D3D097 /* NewMessageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageViewController.swift; sourceTree = "<group>"; };
 		27914B6329CDE28300F78582 /* ERepair.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ERepair.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27914B6629CDE28300F78582 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,8 +106,6 @@
 				2744155429EFFC5100D3D097 /* RegisterUserRequest.swift */,
 				2744155729F2934600D3D097 /* LoginUserRequest.swift */,
 				2744155B29F2CF9800D3D097 /* User.swift */,
-				2744156129FBD4CD00D3D097 /* OrderStatus.swift */,
-				2744156329FBD75D00D3D097 /* UserContent.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -292,8 +286,6 @@
 				274415662A0F875400D3D097 /* NewMessageViewController.swift in Sources */,
 				2709DA3829D6DE5700402A83 /* MasterViewController.swift in Sources */,
 				27914BBE29D5B2BF00F78582 /* MapViewController.swift in Sources */,
-				2744156229FBD4CD00D3D097 /* OrderStatus.swift in Sources */,
-				2744156429FBD75D00D3D097 /* UserContent.swift in Sources */,
 				2744155329EFFACC00D3D097 /* AuthService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
