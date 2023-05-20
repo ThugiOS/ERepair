@@ -70,7 +70,6 @@ class AuthHeaderView: UIView {
             self.subTitleLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
             self.subTitleLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.subTitleLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
         ])
     }
 }

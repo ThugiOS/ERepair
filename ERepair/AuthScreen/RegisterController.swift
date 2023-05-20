@@ -27,7 +27,6 @@ class RegisterController: UIViewController {
         
         self.hideKeyboardWhenTappedAround()
         
-        // Button actions
         self.signUpButton.addTarget(self, action: #selector(didTapSignUp), for: .touchUpInside)
         self.signInButton.addTarget(self, action: #selector(didTapSignIn), for: .touchUpInside)
     }
@@ -41,7 +40,6 @@ class RegisterController: UIViewController {
     private func setupUI() {
         self.view.backgroundColor = .systemBackground
         
- 
         self.view.addSubview(headerView)
         self.view.addSubview(usernameField)
         self.view.addSubview(emailField)
@@ -116,6 +114,7 @@ class RegisterController: UIViewController {
         }
         
         print(registerUserRequest)
+
         // Send user data to Firebase
         AuthService.shared.registerUser(with: registerUserRequest) { [weak self]
             wasRegistered, error in
@@ -126,7 +125,7 @@ class RegisterController: UIViewController {
                 return
             }
 
-            if wasRegistered {
+            if wasRegistered {                
                 if let sceneDelegate = self.view.window?.windowScene?.delegate as? SceneDelegate { sceneDelegate.checkAuthentication() }
             } else {
                 AlertManager.showRegistrationErrorAlert(on: self)

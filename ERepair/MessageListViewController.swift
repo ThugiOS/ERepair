@@ -3,7 +3,7 @@
 //  ERepair
 //
 //  Created by Никитин Артем on 24.04.23.
-// 1 32
+//
 
 import UIKit
 import FirebaseAuth
@@ -20,10 +20,7 @@ struct UserMessage: Codable, Identifiable {
 
 struct UserContent: Codable, Identifiable {
     var id: String
-    var name: String
     var email: String?
-    var phoneNumber: String?
-    var avatar: String?
 }
 
 class MessageListViewController: UIViewController {
@@ -42,6 +39,7 @@ class MessageListViewController: UIViewController {
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.backgroundColor = .white
+
         return cv
     }()
     

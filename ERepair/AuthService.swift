@@ -8,7 +8,8 @@
 import Foundation
 import FirebaseAuth
 import FirebaseFirestore
-
+import FirebaseDatabase
+import FirebaseDatabaseSwift
 
 class AuthService {
     
@@ -39,6 +40,17 @@ class AuthService {
                 complection(false, nil)
                 return
             }
+            // добавление пользователя в realtime database
+            let dbRef = Database.database().reference()
+            let userRef = dbRef.child("users").child(Auth.auth().currentUser!.uid)
+            let newUser = UserContent(id: String(Auth.auth().currentUser!.uid), email: email)
+            try? userRef.setValue(from: newUser) { error in
+                if let error {
+                    print(error)
+                } else {
+                    print("Vse OK")
+                }
+            }
             // ошибок нет, пользователь есть
             let db = Firestore.firestore()
             db.collection("users")
@@ -46,7 +58,6 @@ class AuthService {
                 .setData([
                     "username": username,
                     "email": email
-                    
                 ]) { error in
                     if let error {
                         complection(false, error)
@@ -105,7 +116,4 @@ class AuthService {
                 }
             }
     }
-    
 }
-
-

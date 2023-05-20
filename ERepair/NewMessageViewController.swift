@@ -3,7 +3,7 @@
 //  ERepair
 //
 //  Created by Никитин Артем on 13.05.23.
-// 3:21
+//
 
 import UIKit
 import FirebaseAuth
@@ -21,7 +21,7 @@ class NewMessageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        textView.delegate = self
+//        textView.delegate = self
         
         setupUI()
         
@@ -30,6 +30,8 @@ class NewMessageViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
+        textView.backgroundColor = .systemGray6
+        
         self.view.addSubview(emailField)
         self.view.addSubview(textView)
         self.view.addSubview(sendButton)
@@ -99,9 +101,8 @@ class NewMessageViewController: UIViewController {
                 }
             }
         }
-        
     }
 }
 
-extension NewMessageViewController: UITextViewDelegate {
-}
+//extension NewMessageViewController: UITextViewDelegate {
+//}

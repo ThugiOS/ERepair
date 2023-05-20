@@ -110,6 +110,28 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		274415672A164C6900D3D097 /* AuthScreen */ = {
+			isa = PBXGroup;
+			children = (
+				27914B7E29CDF75A00F78582 /* LoginController.swift */,
+				27914B7C29CDF70B00F78582 /* ForgotPasswordController.swift */,
+				27914B8029CDF7BD00F78582 /* RegisterController.swift */,
+			);
+			path = AuthScreen;
+			sourceTree = "<group>";
+		};
+		274415682A164C9A00D3D097 /* HomeScreen */ = {
+			isa = PBXGroup;
+			children = (
+				27914BB529D5B16600F78582 /* MainTapBarController.swift */,
+				27914BB929D5B27300F78582 /* UserViewController.swift */,
+				2709DA3729D6DE5700402A83 /* MasterViewController.swift */,
+				27914BBB29D5B29500F78582 /* CatalogViewController.swift */,
+				27914BBD29D5B2BF00F78582 /* MapViewController.swift */,
+			);
+			path = HomeScreen;
+			sourceTree = "<group>";
+		};
 		27914B5A29CDE28300F78582 = {
 			isa = PBXGroup;
 			children = (
@@ -131,15 +153,9 @@
 			children = (
 				27914B8429CEFB1A00F78582 /* Views */,
 				27914B7A29CDF5C200F78582 /* App */,
-				27914B7E29CDF75A00F78582 /* LoginController.swift */,
-				27914B7C29CDF70B00F78582 /* ForgotPasswordController.swift */,
-				27914B8029CDF7BD00F78582 /* RegisterController.swift */,
+				274415672A164C6900D3D097 /* AuthScreen */,
 				27914B7B29CDF63100F78582 /* Resources */,
-				27914BB529D5B16600F78582 /* MainTapBarController.swift */,
-				27914BB929D5B27300F78582 /* UserViewController.swift */,
-				2709DA3729D6DE5700402A83 /* MasterViewController.swift */,
-				27914BBB29D5B29500F78582 /* CatalogViewController.swift */,
-				27914BBD29D5B2BF00F78582 /* MapViewController.swift */,
+				274415682A164C9A00D3D097 /* HomeScreen */,
 				2744155F29F6DACD00D3D097 /* MessageListViewController.swift */,
 				274415652A0F875400D3D097 /* NewMessageViewController.swift */,
 				2709DA1629D5C65C00402A83 /* Extentions */,

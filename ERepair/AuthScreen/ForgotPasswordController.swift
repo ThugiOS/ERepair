@@ -13,7 +13,6 @@ class ForgotPasswordController: UIViewController {
     private let headerView = AuthHeaderView(title: "Forgot Password", subTitle: "Reset your password")
     private let emailField = CustomTextField(fieldType: .email)
     private let resetButton = CustomButton(title: "Sign UP", hasBackground: true, fontSize: .big)
-    
     private let signInButton = CustomButton(title: "Already have an account? Sign In.", fontSize: .medium)
 
     //MARK: - LifeCycle
@@ -46,7 +45,6 @@ class ForgotPasswordController: UIViewController {
         resetButton.translatesAutoresizingMaskIntoConstraints = false
         signInButton.translatesAutoresizingMaskIntoConstraints = false
 
-        
         NSLayoutConstraint.activate([
             
             self.headerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 150.0),

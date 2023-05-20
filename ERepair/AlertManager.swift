@@ -44,7 +44,6 @@ extension AlertManager {
     }
 }
  
-
 //MARK: - Log In Errors
 extension AlertManager {
     public static func showSignInErrorsAlert(on vc: UIViewController) {
