@@ -89,10 +89,7 @@ class UserViewController: UIViewController {
     
     @objc func buttonPressed() {
         let modalVC = MessageListViewController()
-        modalVC.modalPresentationStyle = .fullScreen // Устанавливаем стиль отображения модального окна
-        modalVC.view.backgroundColor = .white // Устанавливаем цвет фона модального окна
-
-        // Отображаем модальное окно
+        modalVC.modalPresentationStyle = .fullScreen
         self.present(modalVC, animated: true, completion: nil)
     }
 }

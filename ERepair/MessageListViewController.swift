@@ -10,19 +10,6 @@ import FirebaseAuth
 import FirebaseDatabase
 import FirebaseDatabaseSwift
 
-struct UserMessage: Codable, Identifiable {
-    var id: UUID
-    var from: String
-    var to: String
-    var content: String
-    var date: Date
-}
-
-struct UserContent: Codable, Identifiable {
-    var id: String
-    var email: String?
-}
-
 class MessageListViewController: UIViewController {
     
     typealias MessageId = UUID
@@ -90,7 +77,8 @@ class MessageListViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
+        view.backgroundColor = .systemBackground
+
         updateData()
     }
     
@@ -133,6 +121,9 @@ class MessageListViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
+        collectionView.backgroundColor = .systemBackground
+
+
         self.view.addSubview(self.closeButton)
         self.view.addSubview(self.collectionView)
         self.view.addSubview(self.newMessage)
@@ -148,7 +139,7 @@ class MessageListViewController: UIViewController {
             self.collectionView.topAnchor.constraint(equalTo: self.closeButton.bottomAnchor, constant: 10.0),
             self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.95),
+            self.collectionView.widthAnchor.constraint(equalTo: self.view.widthAnchor),
             self.collectionView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.75),
             
             self.newMessage.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor, constant: 10.0),
@@ -166,7 +157,6 @@ class MessageListViewController: UIViewController {
     @objc func buttonNewMessagePressed() {
         let modalVC = NewMessageViewController()
         modalVC.modalPresentationStyle = .automatic
-        modalVC.view.backgroundColor = .white
         self.present(modalVC, animated: true, completion: nil)
     }
 }

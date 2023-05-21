@@ -12,3 +12,8 @@ struct User {
     let email: String
     let userUID: String
 }
+
+struct UserContent: Codable, Identifiable {
+    var id: String
+    var email: String?
+}
