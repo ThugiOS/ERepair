@@ -20,8 +20,6 @@ class NewMessageViewController: UIViewController {
     
     private let modalHeight: CGFloat = UIScreen.main.bounds.height / 2
     
-
-    
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +113,7 @@ class NewMessageViewController: UIViewController {
         userRef.getData { error, snapshot in
             guard error == nil,
                   let snapshot else {
-                print(error ?? "error")
+                print(error ?? "error send data")
                 return
             }
             
@@ -136,7 +134,7 @@ class NewMessageViewController: UIViewController {
             
            try? messageRef.setValue(from: message) { error in
                if error != nil {
-                    print("error")
+                    print("error set value")
                 } else {
                     DispatchQueue.main.async {
                         self.dismiss(animated: true, completion: nil)

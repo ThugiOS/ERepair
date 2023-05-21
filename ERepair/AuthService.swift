@@ -48,7 +48,7 @@ class AuthService {
                 if let error {
                     print(error)
                 } else {
-                    print("Vse OK")
+                    print("User add to realtime database")
                 }
             }
             // ошибок нет, пользователь есть

@@ -89,7 +89,7 @@ class MessageListViewController: UIViewController {
         messagesRef.getData { error, snapshot in
             guard error == nil,
                   let snapshot else {
-                print(error ?? "unknown")
+                print(error ?? "error update data")
                 return
             }
 
