@@ -6,9 +6,11 @@
 // UIPageControl
 //
 
+//Внеси изменения в этот код, что-бы UIPageControl стал работать
+
 import UIKit
 
-class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate {
     
     // MARK: - UI Components
     var collectionView: UICollectionView!
@@ -102,6 +104,9 @@ class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayou
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 0
     }
+    
+    func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        let pageIndex = Int(scrollView.contentOffset.x / scrollView.frame.width)
+        pageControl.currentPage = pageIndex
+    }
 }
-
-
