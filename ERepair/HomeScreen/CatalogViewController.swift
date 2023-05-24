@@ -10,17 +10,21 @@ import UIKit
 
 class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     
+    // MARK: - UI Components
     var collectionView: UICollectionView!
-    
+    var pageControl: UIPageControl!
     let cellIdentifier = "MyCell"
     
     var images = [UIImage(named: "image1"), UIImage(named: "image2"), UIImage(named: "image3")]
     
+    // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        // Initialize collection view layout
+        setupUI()
+    }
+    
+    // MARK: - UI Setup
+    private func setupUI() {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
@@ -35,14 +39,28 @@ class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayou
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
         
-        // Add collection view to view hierarchy
         view.addSubview(collectionView)
         collectionView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: -10.0),
             collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+        ])
+        
+        pageControl = UIPageControl()
+        pageControl.numberOfPages = images.count
+        pageControl.currentPage = 0
+        pageControl.pageIndicatorTintColor = UIColor.lightGray
+        pageControl.currentPageIndicatorTintColor = UIColor.black
+        
+        pageControl.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(pageControl)
+        
+        NSLayoutConstraint.activate([
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
         ])
     }
     
@@ -73,7 +91,6 @@ class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayou
     }
     
     // MARK: - UICollectionViewDelegateFlowLayout
-    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return collectionView.bounds.size
     }
@@ -86,3 +103,5 @@ class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayou
         return 0
     }
 }
+
+
