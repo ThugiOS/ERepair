@@ -3,10 +3,7 @@
 //  ERepair
 //
 //  Created by Никитин Артем on 30.03.23.
-// UIPageControl
 //
-
-//Внеси изменения в этот код, что-бы UIPageControl стал работать
 
 import UIKit
 
