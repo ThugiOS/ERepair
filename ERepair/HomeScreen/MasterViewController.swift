@@ -46,7 +46,7 @@ class MasterViewController: UIViewController {
 
         
         self.logOut.addTarget(self, action: #selector(didTapLogOut), for: .touchUpInside)
-        self.newMessage.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+//        self.newMessage.addTarget(self, action: #selector(didTapSendMessage), for: .touchUpInside)
     }
     
     //MARK: - UI Setup

@@ -18,6 +18,7 @@ class NewMessageViewController: UIViewController {
     private let textView = UITextView(frame: .zero)
     private let sendButton = CustomButton(title: "Send", hasBackground: true, fontSize: .medium)
     
+    // MARK: - Variables
     private let modalHeight: CGFloat = UIScreen.main.bounds.height / 2
     
     // MARK: - LifeCycle
@@ -33,6 +34,7 @@ class NewMessageViewController: UIViewController {
 
         self.sendButton.addTarget(self, action: #selector(sendButtonTapped), for: .touchUpInside)
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
