@@ -38,12 +38,12 @@ class ContactListViewController: UIViewController {
     private func setupUI() {
         self.view.backgroundColor = .systemBackground
 
-        self.view.addSubview(handleView)
-        self.view.addSubview(logoImageView)
-        self.view.addSubview(phoneButton)
-        self.view.addSubview(emailButton)
-        self.view.addSubview(telegramButton)
-        self.view.addSubview(viberButton)
+        self.view.addSubview(self.handleView)
+        self.view.addSubview(self.logoImageView)
+        self.view.addSubview(self.phoneButton)
+        self.view.addSubview(self.emailButton)
+        self.view.addSubview(self.telegramButton)
+        self.view.addSubview(self.viberButton)
         
         self.handleView.backgroundColor = UIColor.lightGray
         self.handleView.layer.cornerRadius = 3
@@ -85,7 +85,6 @@ class ContactListViewController: UIViewController {
             self.viberButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             self.viberButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
             self.viberButton.heightAnchor.constraint(equalToConstant: 55.0),
-            
         ])
     }
     

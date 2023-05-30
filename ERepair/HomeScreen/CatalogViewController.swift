@@ -64,7 +64,6 @@ class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayou
     }
     
     // MARK: - UICollectionViewDataSource
-    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return images.count
     }

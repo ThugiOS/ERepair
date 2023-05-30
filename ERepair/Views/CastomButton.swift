@@ -22,7 +22,7 @@ class CustomButton: UIButton {
         self.layer.cornerRadius = 12
         self.layer.masksToBounds = true
         
-        self.backgroundColor = hasBackground ? .systemBlue : .clear
+        self.backgroundColor = hasBackground ? .systemGreen : .clear
         
         let titleColor: UIColor = hasBackground ? .white : .systemCyan
         self.setTitleColor(titleColor, for: .normal)

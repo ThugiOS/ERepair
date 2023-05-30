@@ -51,9 +51,9 @@ class NewMessageViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
-        textView.backgroundColor = .systemGray5
-        handleView.backgroundColor = UIColor.lightGray
-        handleView.layer.cornerRadius = 3
+        self.textView.backgroundColor = .systemGray5
+        self.handleView.backgroundColor = UIColor.lightGray
+        self.handleView.layer.cornerRadius = 3
         
         self.view.addSubview(handleView)
         self.view.addSubview(emailField)

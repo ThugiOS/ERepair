@@ -13,7 +13,6 @@ class MainTapBarController: UITabBarController {
         super.viewDidLoad()
 
         generateTabBarUser()
-//        generateTabBarMaster()
         setTapBarBackground()
     }
     
@@ -21,42 +20,42 @@ class MainTapBarController: UITabBarController {
         viewControllers = [
             generateVC(
                 viewController: UserViewController(),
-                title: "Person",
+                title: "Главная",
                 image: UIImage(systemName: "scooter")
             ),
             generateVC(
                 viewController: CatalogViewController(),
-                title: "Prices",
+                title: "Цены",
                 image: UIImage(systemName: "magazine.fill")
             ),
             generateVC(
                 viewController: MapViewController(),
-                title: "Contacts & Map",
+                title: "Мы на карте",
                 image: UIImage(systemName: "phone.bubble.left")
             )
         ]
     }
     
-    private func generateTabBarMaster() {
-        viewControllers = [
-            generateVC(
-                viewController: MasterViewController(),
-                title: "Master",
-                image: UIImage(systemName: "wrench.adjustable")
-            ),
-            generateVC(
-                viewController: CatalogViewController(),
-                title: "Prices",
-                image: UIImage(systemName: "magazine.fill")
-            ),
-            generateVC(
-                viewController: MapViewController(),
-                title: "Contacts & Map",
-                image: UIImage(systemName: "phone.bubble.left")
-                
-            )
-        ]
-    }
+//    private func generateTabBarMaster() {
+//        viewControllers = [
+//            generateVC(
+//                viewController: MasterViewController(),
+//                title: "Master",
+//                image: UIImage(systemName: "wrench.adjustable")
+//            ),
+//            generateVC(
+//                viewController: CatalogViewController(),
+//                title: "Prices",
+//                image: UIImage(systemName: "magazine.fill")
+//            ),
+//            generateVC(
+//                viewController: MapViewController(),
+//                title: "Contacts & Map",
+//                image: UIImage(systemName: "phone.bubble.left")
+//
+//            )
+//        ]
+//    }
     
     private func generateVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
         viewController.tabBarItem.title = title
