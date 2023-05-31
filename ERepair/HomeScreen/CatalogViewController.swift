@@ -52,7 +52,7 @@ class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayou
         pageControl.numberOfPages = images.count
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = UIColor.lightGray
-        pageControl.currentPageIndicatorTintColor = UIColor.black
+        pageControl.currentPageIndicatorTintColor = UIColor.white
         
         pageControl.translatesAutoresizingMaskIntoConstraints = false
         view.addSubview(pageControl)

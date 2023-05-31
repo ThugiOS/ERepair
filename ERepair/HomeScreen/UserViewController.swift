@@ -3,7 +3,7 @@
 //  ERepair
 //
 //  Created by Никитин Артем on 30.03.23.
-//393x852 
+//
 
 import UIKit
 import CoreImage
@@ -21,10 +21,12 @@ class UserViewController: UIViewController {
         label.numberOfLines = 3
         return label
     }()
-    private let sendMessageButton = CustomButton(title: "Написать мастеру", hasBackground: true, fontSize: .medium)
-    private let allContactsButton = CustomButton(title: "Контакты", hasBackground: true, fontSize: .medium)
     private let qrCodeImageView = UIImageView(frame: .zero)
-    
+    private let sendMessageButton = CustomButton(title: "Написать мастеру", hasBackground: true, fontSize: .medium)
+    private let phoneButton = CustomButton(title: "Позвонить мастеру", hasBackground: true, fontSize: .medium)
+    private let viberButton = CustomButton(title: "Viber", fontSize: .big)
+    private let telegramButton = CustomButton(title: "Telegram", fontSize: .big)
+
     //MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +34,9 @@ class UserViewController: UIViewController {
                 
         self.logOutButton.addTarget(self, action: #selector(didTapLogOut), for: .touchUpInside)
         self.sendMessageButton.addTarget(self, action: #selector(didTapSendMessage), for: .touchUpInside)
-        self.allContactsButton.addTarget(self, action: #selector(didTapContacts), for: .touchUpInside)
+        self.phoneButton.addTarget(self, action: #selector(didTapPhoneCall), for: .touchUpInside)
+        self.telegramButton.addTarget(self, action: #selector(didTapTelegramButton), for: .touchUpInside)
+        self.viberButton.addTarget(self, action: #selector(didTapViberButton), for: .touchUpInside)
         
         DispatchQueue.main.async {
             AuthService.shared.fetchUser { [weak self] user, error in
@@ -59,35 +63,49 @@ class UserViewController: UIViewController {
         self.view.addSubview(label)
         self.view.addSubview(qrCodeImageView)
         self.view.addSubview(sendMessageButton)
-        self.view.addSubview(allContactsButton)
+        self.view.addSubview(phoneButton)
+        self.view.addSubview(viberButton)
+        self.view.addSubview(telegramButton)
         
         self.logOutButton.translatesAutoresizingMaskIntoConstraints = false
         self.label.translatesAutoresizingMaskIntoConstraints = false
         self.qrCodeImageView.translatesAutoresizingMaskIntoConstraints = false
         self.sendMessageButton.translatesAutoresizingMaskIntoConstraints = false
-        self.allContactsButton.translatesAutoresizingMaskIntoConstraints = false
+        self.phoneButton.translatesAutoresizingMaskIntoConstraints = false
+        self.viberButton.translatesAutoresizingMaskIntoConstraints = false
+        self.telegramButton.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
             self.logOutButton.topAnchor.constraint(equalTo: self.view.topAnchor, constant: Double(self.view.bounds.height * 0.1)),
             self.logOutButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 20.0),
             
-            self.label.topAnchor.constraint(equalTo: self.logOutButton.bottomAnchor, constant: Double(self.view.bounds.height * 0.08)),
+            self.label.topAnchor.constraint(equalTo: self.logOutButton.bottomAnchor, constant: Double(self.view.bounds.height * 0.06)),
             self.label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
-            self.qrCodeImageView.topAnchor.constraint(equalTo: self.label.bottomAnchor, constant: 10.0),
+            self.qrCodeImageView.topAnchor.constraint(equalTo: self.label.bottomAnchor, constant: 15.0),
             self.qrCodeImageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.qrCodeImageView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.50),
+            self.qrCodeImageView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.5),
             self.qrCodeImageView.heightAnchor.constraint(equalTo: self.qrCodeImageView.widthAnchor),
             
-            self.sendMessageButton.topAnchor.constraint(equalTo: self.qrCodeImageView.bottomAnchor, constant: Double(self.view.bounds.height * 0.08)),
+            self.sendMessageButton.topAnchor.constraint(equalTo: self.qrCodeImageView.bottomAnchor, constant: 15.0),
             self.sendMessageButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             self.sendMessageButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.85),
-            self.sendMessageButton.heightAnchor.constraint(equalToConstant: 55.0),
+            self.sendMessageButton.heightAnchor.constraint(equalToConstant: 50.0),
             
-            self.allContactsButton.topAnchor.constraint(equalTo: self.sendMessageButton.bottomAnchor, constant: 10),
-            self.allContactsButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.allContactsButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.85),
-            self.allContactsButton.heightAnchor.constraint(equalToConstant: 55.0),
+            self.phoneButton.topAnchor.constraint(equalTo: self.sendMessageButton.bottomAnchor, constant: 10),
+            self.phoneButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.phoneButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.85),
+            self.phoneButton.heightAnchor.constraint(equalToConstant: 50.0),
+            
+            self.viberButton.topAnchor.constraint(equalTo: self.phoneButton.bottomAnchor, constant: 10.0),
+            self.viberButton.leadingAnchor.constraint(equalTo: self.view.leadingAnchor, constant: 30.0),
+            self.viberButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.4),
+            self.viberButton.heightAnchor.constraint(equalToConstant: 50.0),
+            
+            self.telegramButton.topAnchor.constraint(equalTo: self.phoneButton.bottomAnchor, constant: 10.0),
+            self.telegramButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -30.0),
+            self.telegramButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.4),
+            self.telegramButton.heightAnchor.constraint(equalToConstant: 50.0),
         ])
     }
     
@@ -123,16 +141,30 @@ class UserViewController: UIViewController {
     }
     
     @objc
-    func didTapSendMessage() {
+    private func didTapSendMessage() {
         let modalVC = MessageListViewController()
         modalVC.modalPresentationStyle = .fullScreen
         self.present(modalVC, animated: true, completion: nil)
     }
     
     @objc
-    func didTapContacts() {
-        let modalVC = ContactListViewController()
-        modalVC.modalPresentationStyle = .automatic
-        self.present(modalVC, animated: true, completion: nil)
+    private func didTapPhoneCall() {
+        if let url = URL(string: "tel:+375447370766") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @objc
+    private func didTapTelegramButton() {
+        if let url = URL(string: "telegram://catthug") {
+            UIApplication.shared.open(url)
+        }
+    }
+    
+    @objc
+    private func didTapViberButton() {
+        if let url = URL(string: "viber://contact?number=+375447370766") {
+            UIApplication.shared.open(url)
+        }
     }
 }

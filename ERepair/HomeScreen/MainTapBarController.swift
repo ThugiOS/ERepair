@@ -31,31 +31,10 @@ class MainTapBarController: UITabBarController {
             generateVC(
                 viewController: MapViewController(),
                 title: "Мы на карте",
-                image: UIImage(systemName: "phone.bubble.left")
+                image: UIImage(systemName: "map")
             )
         ]
     }
-    
-//    private func generateTabBarMaster() {
-//        viewControllers = [
-//            generateVC(
-//                viewController: MasterViewController(),
-//                title: "Master",
-//                image: UIImage(systemName: "wrench.adjustable")
-//            ),
-//            generateVC(
-//                viewController: CatalogViewController(),
-//                title: "Prices",
-//                image: UIImage(systemName: "magazine.fill")
-//            ),
-//            generateVC(
-//                viewController: MapViewController(),
-//                title: "Contacts & Map",
-//                image: UIImage(systemName: "phone.bubble.left")
-//
-//            )
-//        ]
-//    }
     
     private func generateVC(viewController: UIViewController, title: String, image: UIImage?) -> UIViewController {
         viewController.tabBarItem.title = title
