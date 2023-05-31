@@ -13,10 +13,22 @@ import FirebaseDatabaseSwift
 class NewMessageViewController: UIViewController {
     
     // MARK: - UI Components
-    private let handleView = UIView(frame: .zero)
+    private let handleView: UIView = {
+        let handleView = UIView()
+        handleView.backgroundColor = UIColor.lightGray
+        handleView.layer.cornerRadius = 3
+        return handleView
+    }()
     private let emailField = CustomTextField(fieldType: .email)
-    private let textView = UITextView(frame: .zero)
-    private let sendButton = CustomButton(title: "Send", hasBackground: true, fontSize: .medium)
+    private let textView: UITextView = {
+        let textView = UITextView()
+        textView.backgroundColor = .systemGray5
+        textView.layer.cornerRadius = 10
+        textView.text = " Здравствуйте, "
+        textView.font = .systemFont(ofSize: 16.0)
+        return textView
+    }()
+    private let sendButton = CustomButton(title: "Отправить", hasBackground: true, fontSize: .medium)
     
     // MARK: - Variables
     private let modalHeight: CGFloat = UIScreen.main.bounds.height / 2
@@ -51,9 +63,7 @@ class NewMessageViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
-        self.textView.backgroundColor = .systemGray5
-        self.handleView.backgroundColor = UIColor.lightGray
-        self.handleView.layer.cornerRadius = 3
+        emailField.text = "master@test.com"
         
         self.view.addSubview(handleView)
         self.view.addSubview(emailField)
@@ -72,24 +82,25 @@ class NewMessageViewController: UIViewController {
             self.handleView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
             
             self.emailField.topAnchor.constraint(equalTo: self.handleView.bottomAnchor, constant: 15.0),
-            self.emailField.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.emailField.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.emailField.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.emailField.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.9),
             self.emailField.heightAnchor.constraint(equalToConstant: 55.0),
             
-            self.textView.topAnchor.constraint(equalTo: self.emailField.bottomAnchor, constant: 10.0),
-            self.textView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.textView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
-            self.textView.heightAnchor.constraint(equalToConstant: 150.0),
+            self.textView.topAnchor.constraint(equalTo: self.emailField.bottomAnchor, constant: 5.0),
+            self.textView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.textView.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.9),
+            self.textView.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.18),
             
-            self.sendButton.topAnchor.constraint(equalTo: self.textView.bottomAnchor, constant: 10.0),
+            self.sendButton.topAnchor.constraint(equalTo: self.textView.bottomAnchor, constant: 15.0),
             self.sendButton.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            self.sendButton.heightAnchor.constraint(equalToConstant: 55.0),
+            self.sendButton.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.07),
             self.sendButton.widthAnchor.constraint(equalToConstant: 200.0),
         ])
     }
     
     // MARK: - Selectors
-    @objc func keyboardWillShow(notification: NSNotification) {
+    @objc
+    func keyboardWillShow(notification: NSNotification) {
            if let keyboardFrame = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? CGRect {
                let keyboardHeight = keyboardFrame.height
                let yOffset = modalHeight - keyboardHeight
@@ -99,13 +110,15 @@ class NewMessageViewController: UIViewController {
            }
        }
 
-       @objc func keyboardWillHide(notification: NSNotification) {
-           UIView.animate(withDuration: 0.3) {
-               self.view.frame.origin.y = UIScreen.main.bounds.height - self.modalHeight
-           }
-       }
+    @objc
+    func keyboardWillHide(notification: NSNotification) {
+        UIView.animate(withDuration: 0.3) {
+            self.view.frame.origin.y = UIScreen.main.bounds.height - self.modalHeight
+        }
+    }
 
-    @objc func sendButtonTapped() {
+    @objc
+    func sendButtonTapped() {
         let newMessageId = UUID()
         
         let receipientEmail = emailField.text
