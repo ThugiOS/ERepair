@@ -444,6 +444,9 @@
 				DEVELOPMENT_TEAM = 9YW4L3WZ5R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ERepair/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need to show location on the map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to always show location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -471,6 +474,9 @@
 				DEVELOPMENT_TEAM = 9YW4L3WZ5R;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = ERepair/Resources/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = "";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Need to show location on the map";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Need to always show location";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
