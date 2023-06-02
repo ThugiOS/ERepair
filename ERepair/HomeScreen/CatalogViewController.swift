@@ -78,13 +78,9 @@ class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayou
         let imageView = UIImageView(frame: cell.contentView.bounds)
         imageView.image = images[indexPath.item]
         imageView.contentMode = .scaleAspectFill
-        imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
         cell.contentView.addSubview(imageView)
-        
-        // Flip image horizontally
-        imageView.transform = CGAffineTransform(scaleX: -1, y: 1)
-        
+
         return cell
     }
     

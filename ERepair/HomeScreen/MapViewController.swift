@@ -13,7 +13,6 @@ import MapKit
 class MapViewController: UIViewController {
 
     private let locationManager = CLLocationManager()
-    
     private let shopCoordinate = CLLocationCoordinate2D(latitude: 53.908933, longitude: 30.333573)
     private let shopPin: MKPointAnnotation = {
         let annotation = MKPointAnnotation()
@@ -84,10 +83,10 @@ class MapViewController: UIViewController {
         )
 
         let tapMap = UITapGestureRecognizer(target: self, action: #selector(mapTapped(_:)))
-        self.mapView.addGestureRecognizer(tapMap)
-        self.showShopPhotoButton.addTarget(self, action: #selector(didTapShowPhoto), for: .touchUpInside)
-        self.showLocation.addTarget(self, action: #selector(didTapShowYourLocation), for: .touchUpInside)
-        self.showShopLocation.addTarget(self, action: #selector(didTapShopLocation), for: .touchUpInside)
+        mapView.addGestureRecognizer(tapMap)
+        showShopPhotoButton.addTarget(self, action: #selector(didTapShowPhoto), for: .touchUpInside)
+        showLocation.addTarget(self, action: #selector(didTapShowYourLocation), for: .touchUpInside)
+        showShopLocation.addTarget(self, action: #selector(didTapShopLocation), for: .touchUpInside)
     }
 
     // MARK: - UI Setup
