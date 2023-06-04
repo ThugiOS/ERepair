@@ -1,5 +1,5 @@
 //
-//  HomeViewController.swift
+//  UserViewController.swift
 //  ERepair
 //
 //  Created by Никитин Артем on 30.03.23.
@@ -39,7 +39,7 @@ class UserViewController: UIViewController {
         self.viberButton.addTarget(self, action: #selector(didTapViberButton), for: .touchUpInside)
         
         DispatchQueue.main.async {
-            AuthService.shared.fetchUser { [weak self] user, error in
+            AuthManager.shared.fetchUser { [weak self] user, error in
                 guard let self = self else { return }
                 if let error = error {
                     AlertManager.showFetchingUserError(on: self, with: error)
@@ -52,7 +52,6 @@ class UserViewController: UIViewController {
                 }
             }
         }
-
     }
     
     //MARK: - UI Setup
@@ -126,7 +125,7 @@ class UserViewController: UIViewController {
     //MARK: - Selectors
     @objc
     private func didTapLogOut() {
-        AuthService.shared.signOut { [weak self] error in
+        AuthManager.shared.signOut { [weak self] error in
             guard let self = self else { return }
             if let error = error {
                 AlertManager.showLogoutError(on: self, with: error)

@@ -10,10 +10,10 @@ import UIKit
 class ForgotPasswordController: UIViewController {
     
     //MARK: UI-Components
-    private let headerView = AuthHeaderView(title: "Forgot Password", subTitle: "Reset your password")
+    private let headerView = AuthHeaderView(title: "Забыли пароль?", subTitle: "Сбросить пароль")
     private let emailField = CustomTextField(fieldType: .email)
-    private let resetButton = CustomButton(title: "Sign UP", hasBackground: true, fontSize: .big)
-    private let signInButton = CustomButton(title: "Already have an account? Sign In.", fontSize: .medium)
+    private let resetButton = CustomButton(title: "Восстановить", hasBackground: true, fontSize: .big)
+    private let signInButton = CustomButton(title: "У вас уже есть аккаунт?", fontSize: .medium)
 
     //MARK: - LifeCycle
     override func viewDidLoad() {
@@ -40,10 +40,10 @@ class ForgotPasswordController: UIViewController {
         self.view.addSubview(resetButton)
         self.view.addSubview(signInButton)
         
-        headerView.translatesAutoresizingMaskIntoConstraints = false
-        emailField.translatesAutoresizingMaskIntoConstraints = false
-        resetButton.translatesAutoresizingMaskIntoConstraints = false
-        signInButton.translatesAutoresizingMaskIntoConstraints = false
+        self.headerView.translatesAutoresizingMaskIntoConstraints = false
+        self.emailField.translatesAutoresizingMaskIntoConstraints = false
+        self.resetButton.translatesAutoresizingMaskIntoConstraints = false
+        self.signInButton.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
             
@@ -52,20 +52,20 @@ class ForgotPasswordController: UIViewController {
             self.headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.headerView.heightAnchor.constraint(equalToConstant: 230.0),
             
-            self.emailField.topAnchor.constraint(equalTo: headerView.bottomAnchor, constant: 12),
-            self.emailField.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+            self.emailField.topAnchor.constraint(equalTo: self.headerView.bottomAnchor, constant: 12),
+            self.emailField.centerXAnchor.constraint(equalTo: self.headerView.centerXAnchor),
             self.emailField.heightAnchor.constraint(equalToConstant: 55),
-            self.emailField.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
+            self.emailField.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.85),
             
-            self.resetButton.topAnchor.constraint(equalTo: emailField.bottomAnchor, constant: 12),
-            self.resetButton.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+            self.resetButton.topAnchor.constraint(equalTo: self.emailField.bottomAnchor, constant: 12),
+            self.resetButton.centerXAnchor.constraint(equalTo: self.headerView.centerXAnchor),
             self.resetButton.heightAnchor.constraint(equalToConstant: 55),
-            self.resetButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
+            self.resetButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.85),
             
-            self.signInButton.topAnchor.constraint(equalTo: resetButton.bottomAnchor, constant: 12),
-            self.signInButton.centerXAnchor.constraint(equalTo: headerView.centerXAnchor),
+            self.signInButton.topAnchor.constraint(equalTo: self.resetButton.bottomAnchor, constant: 12),
+            self.signInButton.centerXAnchor.constraint(equalTo: self.headerView.centerXAnchor),
             self.signInButton.heightAnchor.constraint(equalToConstant: 55),
-            self.signInButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.85),
+            self.signInButton.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.85),
         ])
     }
     
@@ -74,7 +74,7 @@ class ForgotPasswordController: UIViewController {
     private func didTapForgotPassword() {
         let email = self.emailField.text ?? ""
 
-        AuthService.shared.forgotPassword(with: email) { [weak self] error in
+        AuthManager.shared.forgotPassword(with: email) { [weak self] error in
             guard let self = self else { return }
             if let error {
                 AlertManager.showErrorSendingPasswordReset(on: self, with: error)

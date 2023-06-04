@@ -1,5 +1,5 @@
 //
-//  AuthService.swift
+//  AuthManager.swift
 //  ERepair
 //
 //  Created by Никитин Артем on 19.04.23.
@@ -11,9 +11,9 @@ import FirebaseFirestore
 import FirebaseDatabase
 import FirebaseDatabaseSwift
 
-class AuthService {
+class AuthManager {
     
-    public static let shared = AuthService()
+    public static let shared = AuthManager()
     
     private init() {}
     

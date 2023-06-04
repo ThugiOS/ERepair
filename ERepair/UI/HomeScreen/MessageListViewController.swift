@@ -75,7 +75,7 @@ class MessageListViewController: UIViewController {
         let configuration = UICollectionLayoutListConfiguration(appearance: .plain)
         let layout = UICollectionViewCompositionalLayout.list(using: configuration)
         
-        collectionView.collectionViewLayout = layout
+        self.collectionView.collectionViewLayout = layout
         
         _ = messageCellRegistration
         _ = dataSource

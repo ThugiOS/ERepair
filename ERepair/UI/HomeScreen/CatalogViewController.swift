@@ -9,57 +9,58 @@ import UIKit
 
 class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UIScrollViewDelegate {
     
+    private var images = [UIImage(named: "image1"), UIImage(named: "image2"), UIImage(named: "image3")]
+    private let cellIdentifier = "cell"
+    
     // MARK: - UI Components
-    var collectionView: UICollectionView!
-    var pageControl: UIPageControl!
-    let cellIdentifier = "MyCell"
-    
-    var images = [UIImage(named: "image1"), UIImage(named: "image2"), UIImage(named: "image3")]
-    
-    // MARK: - LifeCycle
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        setupUI()
-    }
-    
-    // MARK: - UI Setup
-    private func setupUI() {
+    private var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.scrollDirection = .horizontal
         layout.minimumInteritemSpacing = 0
         layout.minimumLineSpacing = 0
         
-        // Initialize collection view
-        collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
-        collectionView.delegate = self
-        collectionView.dataSource = self
-        collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+        let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .systemBackground
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.isPagingEnabled = true
-        
-        view.addSubview(collectionView)
-        collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.topAnchor.constraint(equalTo: view.topAnchor, constant: -10.0),
-            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
-        
-        pageControl = UIPageControl()
-        pageControl.numberOfPages = images.count
+        return collectionView
+    }()
+    private var pageControl: UIPageControl = {
+        let pageControl = UIPageControl()
         pageControl.currentPage = 0
         pageControl.pageIndicatorTintColor = UIColor.lightGray
         pageControl.currentPageIndicatorTintColor = UIColor.white
+        return pageControl
+    }()
+    
+    // MARK: - LifeCycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        setupUI()
         
-        pageControl.translatesAutoresizingMaskIntoConstraints = false
-        view.addSubview(pageControl)
+        self.pageControl.numberOfPages = images.count
+        
+        self.collectionView.delegate = self
+        self.collectionView.dataSource = self
+        self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
+    }
+    
+    // MARK: - UI Setup
+    private func setupUI() {
+        
+        self.view.addSubview(collectionView)
+        self.view.addSubview(pageControl)
+        self.collectionView.translatesAutoresizingMaskIntoConstraints = false
+        self.pageControl.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            pageControl.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100)
+            self.collectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.collectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.collectionView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: -10.0),
+            self.collectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
+            
+            self.pageControl.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.pageControl.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100)
         ])
     }
     

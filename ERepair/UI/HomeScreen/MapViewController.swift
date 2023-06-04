@@ -5,7 +5,6 @@
 //  Created by Никитин Артем on 30.03.23.
 //
 
-
 import UIKit
 import CoreLocation
 import MapKit
@@ -48,7 +47,6 @@ class MapViewController: UIViewController {
         button.setImage(UIImage(systemName: "photo.fill"), for: .normal)
         return button
     }()
-    
     private let showLocation: UIButton = {
        let button = UIButton()
         button.backgroundColor = .systemGray4
@@ -56,7 +54,6 @@ class MapViewController: UIViewController {
         button.setImage(UIImage(systemName: "location"), for: .normal)
         return button
     }()
-    
     private let showShopLocation: UIButton = {
        let button = UIButton()
         button.backgroundColor = .systemGray4
@@ -69,81 +66,81 @@ class MapViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupUI()
-        
-        locationManager.requestWhenInUseAuthorization()
-        
-        shopPin.coordinate = shopCoordinate
 
-        mapView.showsUserLocation = true
-        mapView.addAnnotation(shopPin)
-        mapView.setRegion(MKCoordinateRegion(center: shopCoordinate,
+        self.locationManager.requestWhenInUseAuthorization()
+
+        self.shopPin.coordinate = shopCoordinate
+
+        self.mapView.showsUserLocation = true
+        self.mapView.addAnnotation(shopPin)
+        self.mapView.setRegion(MKCoordinateRegion(center: shopCoordinate,
                                              span: MKCoordinateSpan(latitudeDelta: 0.01,
                                                                     longitudeDelta: 0.01)),
                           animated: true
         )
 
-        let tapMap = UITapGestureRecognizer(target: self, action: #selector(mapTapped(_:)))
-        mapView.addGestureRecognizer(tapMap)
-        showShopPhotoButton.addTarget(self, action: #selector(didTapShowPhoto), for: .touchUpInside)
-        showLocation.addTarget(self, action: #selector(didTapShowYourLocation), for: .touchUpInside)
-        showShopLocation.addTarget(self, action: #selector(didTapShopLocation), for: .touchUpInside)
+        let tapMap = UITapGestureRecognizer(target: self, action: #selector(didTapMap(_:)))
+        self.mapView.addGestureRecognizer(tapMap)
+        self.showShopPhotoButton.addTarget(self, action: #selector(didTapShowPhoto), for: .touchUpInside)
+        self.showLocation.addTarget(self, action: #selector(didTapShowYourLocation), for: .touchUpInside)
+        self.showShopLocation.addTarget(self, action: #selector(didTapShopLocation), for: .touchUpInside)
     }
 
     // MARK: - UI Setup
     private func setupUI() {
 
-        label.translatesAutoresizingMaskIntoConstraints = false
-        mapView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        showShopPhotoButton.translatesAutoresizingMaskIntoConstraints = false
-        showLocation.translatesAutoresizingMaskIntoConstraints = false
-        showShopLocation.translatesAutoresizingMaskIntoConstraints = false
+        self.label.translatesAutoresizingMaskIntoConstraints = false
+        self.mapView.translatesAutoresizingMaskIntoConstraints = false
+        self.imageView.translatesAutoresizingMaskIntoConstraints = false
+        self.showShopPhotoButton.translatesAutoresizingMaskIntoConstraints = false
+        self.showLocation.translatesAutoresizingMaskIntoConstraints = false
+        self.showShopLocation.translatesAutoresizingMaskIntoConstraints = false
 
-        view.addSubview(mapView)
-        view.addSubview(label)
-        view.addSubview(imageView)
-        view.addSubview(showShopPhotoButton)
-        view.addSubview(showLocation)
-        view.addSubview(showShopLocation)
+        self.view.addSubview(mapView)
+        self.view.addSubview(label)
+        self.view.addSubview(imageView)
+        self.view.addSubview(showShopPhotoButton)
+        self.view.addSubview(showLocation)
+        self.view.addSubview(showShopLocation)
 
         NSLayoutConstraint.activate([
-            mapView.topAnchor.constraint(equalTo: view.topAnchor),
-            mapView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            mapView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            mapView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            self.mapView.topAnchor.constraint(equalTo: self.view.topAnchor),
+            self.mapView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
+            self.mapView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.mapView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
 
-            imageView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100),
-            imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            imageView.widthAnchor.constraint(equalToConstant: 330.0),
-            imageView.heightAnchor.constraint(equalToConstant: 150.0),
-            
-            label.bottomAnchor.constraint(equalTo: imageView.topAnchor, constant: -10.0),
-            label.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            
-            showShopPhotoButton.widthAnchor.constraint(equalToConstant: 50.0),
-            showShopPhotoButton.heightAnchor.constraint(equalToConstant: 50.0),
-            showShopPhotoButton.bottomAnchor.constraint(equalTo: label.topAnchor, constant: -30.0),
-            showShopPhotoButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20.0),
-            
-            showLocation.centerXAnchor.constraint(equalTo: showShopPhotoButton.centerXAnchor),
-            showLocation.bottomAnchor.constraint(equalTo: showShopPhotoButton.topAnchor, constant: -10.0),
-            showLocation.widthAnchor.constraint(equalToConstant: 50.0),
-            showLocation.heightAnchor.constraint(equalToConstant: 50.0),
-            
-            showShopLocation.centerXAnchor.constraint(equalTo: showShopPhotoButton.centerXAnchor),
-            showShopLocation.bottomAnchor.constraint(equalTo: showLocation.topAnchor, constant: -10.0),
-            showShopLocation.widthAnchor.constraint(equalToConstant: 50.0),
-            showShopLocation.heightAnchor.constraint(equalToConstant: 50.0),
+            self.imageView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -100),
+            self.imageView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.imageView.widthAnchor.constraint(equalToConstant: 330.0),
+            self.imageView.heightAnchor.constraint(equalToConstant: 150.0),
+
+            self.label.bottomAnchor.constraint(equalTo: self.imageView.topAnchor, constant: -10.0),
+            self.label.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+
+            self.showShopPhotoButton.widthAnchor.constraint(equalToConstant: 50.0),
+            self.showShopPhotoButton.heightAnchor.constraint(equalToConstant: 50.0),
+            self.showShopPhotoButton.bottomAnchor.constraint(equalTo: self.label.topAnchor, constant: -30.0),
+            self.showShopPhotoButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20.0),
+
+            self.showLocation.centerXAnchor.constraint(equalTo: self.showShopPhotoButton.centerXAnchor),
+            self.showLocation.bottomAnchor.constraint(equalTo: self.showShopPhotoButton.topAnchor, constant: -10.0),
+            self.showLocation.widthAnchor.constraint(equalToConstant: 50.0),
+            self.showLocation.heightAnchor.constraint(equalToConstant: 50.0),
+
+            self.showShopLocation.centerXAnchor.constraint(equalTo: self.showShopPhotoButton.centerXAnchor),
+            self.showShopLocation.bottomAnchor.constraint(equalTo: self.showLocation.topAnchor, constant: -10.0),
+            self.showShopLocation.widthAnchor.constraint(equalToConstant: 50.0),
+            self.showShopLocation.heightAnchor.constraint(equalToConstant: 50.0),
         ])
     }
 
     // MARK: - Selectors
     @objc
-    private func mapTapped(_ gestureRecognizer: UITapGestureRecognizer) {
+    private func didTapMap(_ gestureRecognizer: UITapGestureRecognizer) {
             imageView.isHidden = true
             label.isHidden = true
     }
-    
+
     @objc
     private func didTapShowPhoto() {
         if imageView.isHidden {
@@ -154,12 +151,12 @@ class MapViewController: UIViewController {
             label.isHidden = true
         }
     }
-    
+
     @objc
     private func didTapShowYourLocation() {
         let latitudeLocation = Double(locationManager.location?.coordinate.latitude ?? 0.0)
         let longitudeLocation = Double(locationManager.location?.coordinate.longitude ?? 0.0)
-        
+
         mapView.setRegion(MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: latitudeLocation,
                                                                             longitude: longitudeLocation),
                                              span: MKCoordinateSpan(latitudeDelta: 0.01,
@@ -167,7 +164,7 @@ class MapViewController: UIViewController {
                           animated: true
         )
     }
-    
+
     @objc
     private func didTapShopLocation() {
         mapView.setRegion(MKCoordinateRegion(center: shopCoordinate,
@@ -177,4 +174,3 @@ class MapViewController: UIViewController {
         )
     }
 }
-

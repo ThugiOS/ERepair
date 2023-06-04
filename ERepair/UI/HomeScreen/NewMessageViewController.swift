@@ -63,7 +63,7 @@ class NewMessageViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
-        emailField.text = "master@test.com"
+        self.emailField.text = "master@test.com"
         
         self.view.addSubview(handleView)
         self.view.addSubview(emailField)
