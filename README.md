@@ -16,9 +16,9 @@
 - Карту с местонахождением мастерской для удобства пользователя
 
 
-
-<video src="https://github.com/catthug92/ERepair/blob/main/MediaContent/auth.MOV" width="320"/>  <video src="https://github.com/catthug92/ERepair/blob/main/MediaContent/home.MOV" width="320"/> 
-
+<p align="center">
+<video src="https://github.com/catthug92/ERepair/blob/main/MediaContent/auth.mov" width="320"/>
+</p>
 
 ## Связь
 
