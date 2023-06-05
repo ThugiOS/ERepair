@@ -1,5 +1,5 @@
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/logogithub.png" width="726">
+      <img src="https://github.com/catthug92/ERepair/blob/main/logogithub.png" width="120">
 </p>
 
 # ERepair
