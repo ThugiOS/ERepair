@@ -1,6 +1,7 @@
 <p align="center">
       <img src="[Project Logo Url](https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg)" width="726">
 </p>
+
 # ERepair
 
 Описание проекта в нескольких предложениях.
@@ -9,7 +10,7 @@
 
 В этом разделе вы найдете информацию о регистрации и авторизации.
 
-![Фотография](ссылка_на_фото)
+![Фотография](https://img.freepik.com/free-vector/bird-colorful-logo-gradient-vector_343694-1365.jpg)
 [Видеоролик](ссылка_на_видео)
 
 ## Основной экран
