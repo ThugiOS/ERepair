@@ -47,7 +47,7 @@ class ForgotPasswordController: UIViewController {
 
         NSLayoutConstraint.activate([
             
-            self.headerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: 150.0),
+            self.headerView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: Double(self.view.bounds.height * 0.18)),
             self.headerView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.headerView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.headerView.heightAnchor.constraint(equalToConstant: 230.0),
