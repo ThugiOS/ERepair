@@ -15,10 +15,7 @@
 - Актуальные цены на ремент и прочие услуги
 - Карту с местонахождением мастерской для удобства пользователя
 
-<!--
-
-![Фотография](ссылка_на_фото)
-[Видеоролик](ссылка_на_видео) -->
+<video src="https://github.com/catthug92/ERepair/blob/main/Content/auth.mp4" width="320"/> <video src="https://github.com/catthug92/ERepair/blob/main/Content/home.mp4" width="320"/> 
 
 
 ## Связь
