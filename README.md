@@ -14,7 +14,7 @@
 - Телефон и ссылки на другие мессенджеры
 - Актуальные цены на ремент и прочие услуги
 - Карту с местонахождением мастерской для удобства пользователя
-[Видеоролик](https://github.com/catthug92/ERepair/blob/main/Content/auth.mp4)
+<video src="https://user-images.githubusercontent.com/74405334/232993722-ddc8be22-5c84-4d8d-baf2-4326fda97ec3.mov" width="320"/>
 
 <!--
 
