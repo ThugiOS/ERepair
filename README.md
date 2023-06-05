@@ -16,7 +16,7 @@
 - Карту с местонахождением мастерской для удобства пользователя
 
 
-Fashion Store App Overview | Dynamic Font Scale
+
 | :-: | :-: |
 | <video src="https://github.com/catthug92/ERepair/blob/main/MediaContent/auth.MOV" width="320"/> | <video src="https://github.com/catthug92/ERepair/blob/main/MediaContent/home.MOV" width="320"/> |
 
