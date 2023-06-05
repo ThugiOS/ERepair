@@ -1,7 +1,7 @@
 <p align="center">
       <img src="https://github.com/catthug92/ERepair/blob/main/MediaContent/logogithub.png" width="120">
 </p>
-
+ 
 # ERepair
 
 Данный пет-проект является курсовым в рамках обучения в школе [TeachMeSkills](https://teachmeskills.by)
