@@ -38,7 +38,7 @@ extension AlertManager {
     public static func showRegistrationErrorAlert(on vc: UIViewController) {
         self.showBasicAlert(on: vc, title: "Unknown Registration Error", message: nil)
     }
-    // если есть сообщение об ошибке от Firebase or NodeJS
+    // если есть сообщение об ошибке от Firebase
     public static func showRegistrationErrorAlert(on vc: UIViewController, with error: Error) {
         self.showBasicAlert(on: vc, title: "Unknown Registration Error", message: "\(error.localizedDescription)")
     }

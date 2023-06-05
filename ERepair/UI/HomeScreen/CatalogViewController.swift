@@ -45,6 +45,11 @@ class CatalogViewController: UIViewController, UICollectionViewDelegateFlowLayou
         self.collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellIdentifier)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        MessageManager.shared.getAllMessage()
+    }
+    
     // MARK: - UI Setup
     private func setupUI() {
         

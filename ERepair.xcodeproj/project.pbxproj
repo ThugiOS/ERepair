@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2722C5722A2CF50D0098C533 /* MessageManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2722C5712A2CF50D0098C533 /* MessageManager.swift */; };
+		2722C5742A2DE0F40098C533 /* UUID+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2722C5732A2DE0F40098C533 /* UUID+extension.swift */; };
 		2744153E29EFDB7B00D3D097 /* AlertManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2744153D29EFDB7B00D3D097 /* AlertManager.swift */; };
 		2744154229EFE54300D3D097 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2744154129EFE54300D3D097 /* GoogleService-Info.plist */; };
 		2744154529EFE78E00D3D097 /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 2744154429EFE78E00D3D097 /* FirebaseAuth */; };
@@ -43,6 +45,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2722C5712A2CF50D0098C533 /* MessageManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageManager.swift; sourceTree = "<group>"; };
+		2722C5732A2DE0F40098C533 /* UUID+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UUID+extension.swift"; sourceTree = "<group>"; };
 		2744153D29EFDB7B00D3D097 /* AlertManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertManager.swift; sourceTree = "<group>"; };
 		2744154129EFE54300D3D097 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2744155229EFFACC00D3D097 /* AuthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthManager.swift; sourceTree = "<group>"; };
@@ -96,6 +100,7 @@
 			children = (
 				27914BB729D5B1AF00F78582 /* UIColor+extension.swift */,
 				2744155D29F4686000D3D097 /* UIViewController+extention.swift */,
+				2722C5732A2DE0F40098C533 /* UUID+extension.swift */,
 			);
 			path = Extentions;
 			sourceTree = "<group>";
@@ -106,6 +111,7 @@
 				2744153D29EFDB7B00D3D097 /* AlertManager.swift */,
 				2744155229EFFACC00D3D097 /* AuthManager.swift */,
 				2744155929F2C44900D3D097 /* ValidationManager.swift */,
+				2722C5712A2CF50D0098C533 /* MessageManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -302,6 +308,7 @@
 				27914BB629D5B16600F78582 /* MainTapBarController.swift in Sources */,
 				2744153E29EFDB7B00D3D097 /* AlertManager.swift in Sources */,
 				2744155529EFFC5100D3D097 /* RegisterUserRequest.swift in Sources */,
+				2722C5742A2DE0F40098C533 /* UUID+extension.swift in Sources */,
 				27914BBC29D5B29500F78582 /* CatalogViewController.swift in Sources */,
 				27914BB829D5B1AF00F78582 /* UIColor+extension.swift in Sources */,
 				27914B8129CDF7BD00F78582 /* RegisterController.swift in Sources */,
@@ -311,6 +318,7 @@
 				27914B6929CDE28300F78582 /* SceneDelegate.swift in Sources */,
 				2744156029F6DACD00D3D097 /* MessageListViewController.swift in Sources */,
 				27914B7F29CDF75A00F78582 /* LoginController.swift in Sources */,
+				2722C5722A2CF50D0098C533 /* MessageManager.swift in Sources */,
 				27914B8629CEFC0C00F78582 /* AuthHeaderView.swift in Sources */,
 				2744155E29F4686000D3D097 /* UIViewController+extention.swift in Sources */,
 				27914B8A29D18F7700F78582 /* CastomButton.swift in Sources */,

@@ -54,6 +54,11 @@ class UserViewController: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        MessageManager.shared.getAllMessage()
+    }
+    
     //MARK: - UI Setup
     private func setupUI() {
         self.view.backgroundColor = .systemBackground
@@ -141,6 +146,7 @@ class UserViewController: UIViewController {
     
     @objc
     private func didTapSendMessage() {
+        MessageManager.shared.getAllMessage()
         let modalVC = MessageListViewController()
         modalVC.modalPresentationStyle = .fullScreen
         self.present(modalVC, animated: true, completion: nil)

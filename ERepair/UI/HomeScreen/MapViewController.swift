@@ -85,6 +85,11 @@ class MapViewController: UIViewController {
         self.showLocation.addTarget(self, action: #selector(didTapShowYourLocation), for: .touchUpInside)
         self.showShopLocation.addTarget(self, action: #selector(didTapShopLocation), for: .touchUpInside)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        MessageManager.shared.getAllMessage()
+    }
 
     // MARK: - UI Setup
     private func setupUI() {

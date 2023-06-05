@@ -30,17 +30,17 @@ class AuthManager {
         let password  = registerUser.password
 
         Auth.auth().createUser(withEmail: email, password: password) { result, error in
-            // пришла ошибка
+            // error
             if let error {
                 complection(false, error)
                 return
             }
-            // ошибки нет, но мы не получили пользователя
+            // no error, no user
             guard let resultUser = result?.user else {
                 complection(false, nil)
                 return
             }
-            // добавление пользователя в realtime database
+            // add to realtime database
             let dbRef = Database.database().reference()
             let userRef = dbRef.child("users").child(Auth.auth().currentUser!.uid)
             let newUser = UserContent(id: String(Auth.auth().currentUser!.uid), email: email)
@@ -51,7 +51,7 @@ class AuthManager {
                     print("User add to realtime database")
                 }
             }
-            // ошибок нет, пользователь есть
+            // add to firestore
             let db = Firestore.firestore()
             db.collection("users")
                 .document(resultUser.uid)
@@ -70,11 +70,11 @@ class AuthManager {
     
     public func signIn(with userRequest: LoginUserRequest, completion: @escaping (Error?)->Void) {
         Auth.auth().signIn(withEmail: userRequest.email, password: userRequest.password) { result, error in
-            if let error = error {
+            if let error {
                 completion(error)
                 return
             } else {
-                completion(nil) // If nil, then log in.
+                completion(nil)
             }
         }
     }

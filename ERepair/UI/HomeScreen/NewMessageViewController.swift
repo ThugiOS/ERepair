@@ -6,9 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseDatabaseSwift
 
 class NewMessageViewController: UIViewController {
     
@@ -49,10 +46,8 @@ class NewMessageViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
-        view.backgroundColor = .systemBackground
-        
-        view.frame.origin.y = UIScreen.main.bounds.height - modalHeight
+
+        self.view.frame.origin.y = UIScreen.main.bounds.height - modalHeight
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -63,6 +58,7 @@ class NewMessageViewController: UIViewController {
     
     // MARK: - UI Setup
     private func setupUI() {
+        self.view.backgroundColor = .systemBackground
         self.emailField.text = "master@test.com"
         
         self.view.addSubview(handleView)
@@ -119,43 +115,12 @@ class NewMessageViewController: UIViewController {
 
     @objc
     func sendButtonTapped() {
-        let newMessageId = UUID()
-        
-        let receipientEmail = emailField.text
-        
-        let dbRef = Database.database().reference()
-        let userRef = dbRef.child("users").queryOrdered(byChild: "email").queryEqual(toValue: receipientEmail)
-        userRef.getData { error, snapshot in
-            guard error == nil,
-                  let snapshot else {
-                print(error ?? "error send data")
-                return
-            }
+        DispatchQueue.main.async {
+            let receipientEmail = self.emailField.text
+            let textMessage = self.textView.text
             
-            guard let users = try? snapshot.data(as: [String: UserContent].self),
-                  let userId = users.first?.value.id else {
-                print("wrong data")
-                return
-            }
-            
-            let messageRef = dbRef.child("messages").child(userId).child(newMessageId.uuidString)
-            
-            let message = UserMessage(id: newMessageId,
-                                      from: Auth.auth().currentUser!.email ?? "unknown sender",
-                                      to: receipientEmail ?? "unknown receiver",
-                                      content: self.textView.text,
-                                      date: Date()
-            )
-            
-           try? messageRef.setValue(from: message) { error in
-               if error != nil {
-                    print("error set value")
-                } else {
-                    DispatchQueue.main.async {
-                        self.dismiss(animated: true, completion: nil)
-                    }
-                }
-            }
+            MessageManager.shared.sendMassage(emailField: receipientEmail, textView: textMessage)
+            self.dismiss(animated: true, completion: nil)
         }
     }
 }

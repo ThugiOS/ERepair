@@ -6,9 +6,6 @@
 //
 
 import UIKit
-import FirebaseAuth
-import FirebaseDatabase
-import FirebaseDatabaseSwift
 
 class MessageListViewController: UIViewController {
     
@@ -39,9 +36,9 @@ class MessageListViewController: UIViewController {
         )
         return cell
     }
-    
-    private var messages: [UUID: Message] = [:]
-    private var orderedMessageIds: [UUID] = []
+
+    private var messages = MessageManager.shared.messages
+    private var orderedMessageIds = MessageManager.shared.orderedMessageIds
     
     // MARK: - UI Components
     private let closeButton = CustomButton(title: "Закрыть", hasBackground: false, fontSize: .medium)
@@ -66,7 +63,6 @@ class MessageListViewController: UIViewController {
     // MARK: - LifeCycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         setupUI()
         
         self.closeButton.addTarget(self, action: #selector(closeButtonTapped), for: .touchUpInside)
@@ -84,8 +80,7 @@ class MessageListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         view.backgroundColor = .systemBackground
-
-        updateData()
+        reloadCollectionViewData()
     }
     
     // MARK: - UI Setup
@@ -121,36 +116,8 @@ class MessageListViewController: UIViewController {
     }
     
     // MARK: - Private Methods
-    private func updateData() {
-        let dbRer = Database.database().reference()
-        let messagesRef = dbRer.child("messages").child(Auth.auth().currentUser!.uid)
-        messagesRef.getData { error, snapshot in
-            guard error == nil,
-                  let snapshot else {
-                print(error ?? "error update data")
-                return
-            }
-
-            do {
-                let messages = try snapshot.data(as: [UUID: UserMessage].self)
-
-                let orderedIds = messages
-                    .mapValues { $0.date }
-                    .sorted(using: KeyPathComparator(\.value, order: .reverse))
-                    .map(\.key)
-
-                DispatchQueue.main.async {
-                    self.messages = messages
-                    self.orderedMessageIds = orderedIds
-                    self.reloadCollectionViewData()
-                }
-            } catch {
-                print(error)
-            }
-        }
-    }
-    
     private func reloadCollectionViewData() {
+        MessageManager.shared.getAllMessage()
         var snapshot = Snapshot()
         snapshot.appendSections([0])
         snapshot.appendItems(self.orderedMessageIds, toSection: 0)
@@ -160,6 +127,7 @@ class MessageListViewController: UIViewController {
     // MARK: - Selectors
     @objc
     private func closeButtonTapped() {
+        reloadCollectionViewData()
         self.dismiss(animated: true, completion: nil)
     }
     
@@ -170,13 +138,3 @@ class MessageListViewController: UIViewController {
         self.present(modalVC, animated: true, completion: nil)
     }
 }
-
-// что-бы UUID поддерживался в качестве ключа словарей, которые приходят в codable
-extension UUID: CodingKeyRepresentable {
-    public init?<T>(codingKey: T) where T: CodingKey {
-        self.init(uuidString: codingKey.stringValue)
-    }
-
-    public var codingKey: CodingKey { uuidString.codingKey }
-}
-
