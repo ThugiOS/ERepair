@@ -15,7 +15,8 @@
 - Актуальные цены на ремент и прочие услуги
 - Карту с местонахождением мастерской для удобства пользователя
 
-<video src="https://github.com/catthug92/ERepair/blob/main/Content/auth.mp4" width="320"/> <video src="https://github.com/catthug92/ERepair/blob/main/Content/home.mp4" width="320"/> 
+<video src="https://github.com/catthug92/ERepair/blob/main/Content/auth.mp4" width="320"/>
+<video src="https://github.com/catthug92/ERepair/blob/main/Content/home.mp4" width="320"/> 
 
 
 ## Связь
