@@ -1,6 +1,6 @@
 
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/Content/logo.png" width="220">
+      <img src="https://github.com/catthug92/ERepair/blob/main/MediaContent/logo.png" width="220">
 </p>
 
 
