@@ -61,7 +61,7 @@
 ## Карта
 
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/map.gif" width="220"> 
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/map.gif" width="180"> 
 </p>
 
 
