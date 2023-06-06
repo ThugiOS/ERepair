@@ -77,7 +77,7 @@
 ## "Карта"
 ### На этой вкладке реализовано:
 - Подключение Apple Maps с помощью фреймворка `MapKit`
-- Системный "Pin" с местонахождением мастерской и краткой информации.
+- Системный "Pin" с местонахождением мастерской и краткой информацией.
 - Кнопка демонстрации фото входа в мастерскую, точным адресом и режимом работы
 - Кнопка быстрого перехода к местоположению пользователя с помощью фреймворка `CoreLocation`
 - Кнопка быстрого перехода к местоположению мастерской
@@ -88,4 +88,4 @@
 
 ## Связь
 
-[LinkedIn](https://www.linkedin.com/in/artem-swift/) [Email](mailto:artem.ios.nikitin@gmail.com "artem.ios.nikitin@gmail.com")
+[LinkedIn](https://www.linkedin.com/in/artem-swift/) | [Email](mailto:artem.ios.nikitin@gmail.com "artem.ios.nikitin@gmail.com")
