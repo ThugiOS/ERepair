@@ -33,6 +33,9 @@
       <img src="https://github.com/catthug92/ERepair/blob/main/gif/home.gif" width="220">
 </p> -->
 
+## Аутентификация
+<img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220"> <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220"> 
+
 
 ## Связь
 
