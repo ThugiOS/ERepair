@@ -54,6 +54,11 @@
 
 
 ## Чат с мастером
+### На этом экране реализовано:
+- `Firebase Realtime Database` в которой хранятся все сообщения
+- `UICollectionView` в котором находится список входящих сообщений от мастера
+- Возможность отправки сообщения мастеру
+
 
 <p align="center">
       <img src="https://github.com/catthug92/ERepair/blob/main/gif/chat.gif" width="180">
