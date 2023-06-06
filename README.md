@@ -31,6 +31,8 @@
 
 # Аутентификация
 ### Регистрация пользователя реализована через Firebase Authentication/Cloud Firestore, восстановление пароля происходит классическим способом через email.
+- Реализована валидация всех символов введеных в поле ввода имени/почты/пароля до отправки на сервер
+- При отсутствии пользователя или некорректном вводе пользователь получит соответсвующее сообщение. Которое реализовано через `UIAlertController`  
 <p align="center">
       <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="180">  <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="180">
 </p>
