@@ -34,7 +34,7 @@
 - Реализована валидация всех символов введеных в поле ввода имени/почты/пароля до отправки на сервер
 - При отсутствии пользователя или некорректном вводе пользователь получит соответсвующее сообщение. Которое реализовано через `UIAlertController`  
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="180">  <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="180">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220">  <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="220">
 </p>
 
 # Основной экран
@@ -49,7 +49,7 @@
 - Кнопка удобного перехода в мессенджеры Viber и Telegram `UIApplication.shared.open(URL(string: "Viber|Telegram"))`
 
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/main.gif" width="180">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/main.gif" width="220">
 </p>
 
 
@@ -61,7 +61,7 @@
 
 
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/chat.gif" width="180">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/chat.gif" width="220">
 </p>
 
 
@@ -70,7 +70,7 @@
 - `UICollectionView` со слайдами цен и прочих услуг
 - `UIPageControl` для удобства навигации между слайдами 
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/catalog.gif" width="180">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/catalog.gif" width="220">
 </p>
 
 
@@ -82,10 +82,10 @@
 - Кнопка быстрого перехода к местоположению пользователя с помощью фреймворка `CoreLocation`
 - Кнопка быстрого перехода к местоположению мастерской
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/map.gif" width="180"> 
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/map.gif" width="220"> 
 </p>
 
 
 ## Связь
 
-[LinkedIn](https://www.linkedin.com/in/artem-swift/)
+[LinkedIn](https://www.linkedin.com/in/artem-swift/) [Email](mailto: artem.ios.nikitin@gmail.com "artem.ios.nikitin@gmail.com")
