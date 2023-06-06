@@ -1,6 +1,6 @@
 
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/MediaContent/logo.png" width="220">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/logo.png" width="220">
 </p>
 
 ---
@@ -32,29 +32,29 @@
 ## Аутентификация
 
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220">  <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="220">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="180">  <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="180">
 </p>
 
 </p>
 
-## Основной экран и тап бар
+## Основной экран
 
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/main.gif" width="220">  <img src="https://github.com/catthug92/ERepair/blob/main/gif/tapbar.gif" width="220"> 
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/main.gif" width="180">
 </p>
 
 
 ## Чат с мастером
 
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/chat.gif" width="220">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/chat.gif" width="180">
 </p>
 
 
 ## Услуги
 
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/catalog.gif" width="220">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/catalog.gif" width="180">
 </p>
 
 
