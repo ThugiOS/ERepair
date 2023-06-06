@@ -20,10 +20,10 @@
 <!-- -UIKit
 - -->
 
-<p align="center">
+<!-- <p align="center">
       <img src="https://github.com/catthug92/ERepair/blob/main/gif/home.gif" width="220">
-</p>
-https://github.com/catthug92/ERepair/blob/main/gif/home.gif
+</p> -->
+
 
 ## Связь
 
