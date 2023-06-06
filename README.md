@@ -88,4 +88,4 @@
 
 ## Связь
 
-[LinkedIn](https://www.linkedin.com/in/artem-swift/) [Email](mailto: artem.ios.nikitin@gmail.com "artem.ios.nikitin@gmail.com")
+[LinkedIn](https://www.linkedin.com/in/artem-swift/) [Email](mailto:artem.ios.nikitin@gmail.com "artem.ios.nikitin@gmail.com")
