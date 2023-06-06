@@ -34,7 +34,7 @@
 </p> -->
 
 ## Аутентификация
-<img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220"> <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220"> 
+<img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220"> <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="220"> 
 
 
 ## Связь
