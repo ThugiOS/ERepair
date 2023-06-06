@@ -30,10 +30,26 @@
 - Firebase Crashlytics
 
 ## Аутентификация
-<!-- <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220"> <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="220">  -->
-
 <p align="center">
-      |<img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220"> | <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="220">|
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220">  <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="220">
+</p>
+
+</p>
+## Основной экран и тап бар
+<p align="center">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/main.gif" width="220">  <img src="https://github.com/catthug92/ERepair/blob/main/gif/tapbar.gif" width="220"> 
+</p>
+## Чат с мастером
+<p align="center">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/chat.gif" width="220">
+</p>
+## Услуги
+<p align="center">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/catalog.gif" width="220">
+</p>
+## Карта
+<p align="center">
+      <img src="https://github.com/catthug92/ERepair/blob/main/gif/map.gif" width="220"> 
 </p>
 
 
