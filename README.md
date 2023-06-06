@@ -29,15 +29,22 @@
 - Firebase Realtime Database
 - Firebase Crashlytics
 
-## Аутентификация
-
+# Аутентификация
+### Регистрация пользователя реализована через Firebase Authentication/Cloud Firestore, восстановление пароля происходит классическим способом через email.
 <p align="center">
       <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="180">  <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="180">
 </p>
 
-</p>
+# Основной экран
+### Основной экран включает всебя UITabBar с 3 вкладками "Главная", "Цены", "Мы на карте"
 
-## Основной экран
+## "Главная"
+### На этой вкладке реализовано:
+- UILabel с приветсвенным сообщением и именем пользователя.
+- Автоматически сгенерированный QR-код, с помощью `CoreImage`. В котором содержится уникальный UID пользователя и хранящийся в Cloud Firestore.
+- Кнопка перехода в чат с мастером
+- Кнопка звонка мастеру `UIApplication.shared.open(URL(string: "number_phone"))`
+- Кнопка удобного перехода в мессенджеры Viber и Telegram `UIApplication.shared.open(URL(string: "Viber|Telegram"))`
 
 <p align="center">
       <img src="https://github.com/catthug92/ERepair/blob/main/gif/main.gif" width="180">
