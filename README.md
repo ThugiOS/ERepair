@@ -17,15 +17,15 @@
 
 
 ## Stack
--UIKit
--CoreImage
--CoreLocation 
--MapKit
--NSLayoutConstraint
--Firebase Authentication
--Firebase Cloud Firestore
--Firebase Realtime Database
--Firebase Crashlytics
+- UIKit
+- CoreImage
+- CoreLocation 
+- MapKit
+- NSLayoutConstraint
+- Firebase Authentication
+- Firebase Cloud Firestore
+- Firebase Realtime Database
+- Firebase Crashlytics
 
 <!-- <p align="center">
       <img src="https://github.com/catthug92/ERepair/blob/main/gif/home.gif" width="220">
