@@ -29,15 +29,11 @@
 - Firebase Realtime Database
 - Firebase Crashlytics
 
-<p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220"> | <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="220">
-</p>
-
 ## Аутентификация
 <!-- <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220"> <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="220">  -->
 
 <p align="center">
-      <img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220"> | <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="220">
+      |<img src="https://github.com/catthug92/ERepair/blob/main/gif/auth.gif" width="220"> | <img src="https://github.com/catthug92/ERepair/blob/main/gif/errorLogin.gif" width="220">|
 </p>
 
 
