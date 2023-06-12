@@ -142,6 +142,8 @@ class UserViewController: UIViewController {
                 sceneDelegate.checkAuthentication()
             }
         }
+        
+        MessageManager.shared.orderedMessageIds = []
     }
     
     @objc
