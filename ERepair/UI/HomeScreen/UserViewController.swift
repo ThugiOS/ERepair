@@ -156,7 +156,7 @@ class UserViewController: UIViewController {
     
     @objc
     private func didTapPhoneCall() {
-        if let url = URL(string: "tel:+375447370766") {
+        if let url = URL(string: "tel:+375291112233") {
             UIApplication.shared.open(url)
         }
     }
